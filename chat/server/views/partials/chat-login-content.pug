@@ -1,0 +1,79 @@
+.container
+	.new-topic-wrapper
+		p: input(type="text" placeholder="Nickname")#new-topic-nickname
+		p: input(type="text" placeholder="Topic name")#new-topic-name
+		p: button#init-topic Create topic
+	br
+	br
+	br
+
+	.login-topic-wrapper
+		p: input(type="text" placeholder="Your private key")#private-key
+		p: button#load-topic Load topic
+
+	br
+	br
+	br
+
+	.send-message-wrapper
+		p: input(type="text" placeholder="Message")#message
+		p: button#send-message Send message
+
+	//.join-topic-wrapper
+
+	br
+	br
+	br
+
+	p: button#generate-invite Generate new invite
+	br
+	br
+	br
+	p: h4 Add new participant
+	p: input(type="text" placeholder="Nickname")#new-participant-nickname
+	p: input(type="text" placeholder="Public Key")#new-participant-public-key
+	p: input(type="text" placeholder="Residence")#new-participant-residence
+	p: input(type="text" placeholder="rights")#new-participant-rights
+	p: button#add-new-participant Add new participant
+	br
+	br
+	br
+
+	p: input(type="text" placeholder="New message")#new-message
+	p: button#broadcast-message Broadcast message
+	br
+	br
+	br
+
+	p: h3 Join topic by invite code
+	p: input(type="text" placeholder="Invite code")#invite-code
+	p: input(type="text" placeholder="nickname")#join-nickname
+	p: button#join-topic Join topic
+
+	br
+	br
+	br
+
+	#login-info
+		p: h3 New topic info
+		.login-info-section
+			label New topic id:
+			span#newTopicID
+		.login-info-section
+			label New topic name:
+			span#newTopicName
+
+		.login-info-section
+			label Your nickname:
+			span#newNickname
+		.login-info-section
+			label Your public key:
+			span#newPublicKey
+		.login-info-section
+			label Your private key:
+			span#newPrivateKey
+		.login-info-section
+			button#continue-to-chat Continue to chat
+
+	button#close-topic Close topic
+

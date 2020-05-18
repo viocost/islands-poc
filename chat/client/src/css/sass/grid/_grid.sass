@@ -1,0 +1,51 @@
+.container
+  width: 90%
+  height: 100%
+  margin: 0 auto
+
+.flex-container
+  display: flex
+  &.vertical
+    flex-direction: column
+  &.vertical-reverse
+    flex-direction: column-reverse
+  &.horizontal
+    flex-direction: row
+  &.horizontal-reverse
+    flex-direction: row-reverse
+  width: 100%
+  justify-content: space-around
+
+.wrap
+  width: 100%
+  height: 100%
+  flex-wrap: nowrap
+
+
+
+
+table
+  table-layout: fixed
+
+  tr
+
+    height: 3rem
+    width: 100%
+
+    td.id
+      display: none
+    td.circle
+      text-align: center
+      width: 5rem
+      i.fa
+        color: green
+
+    td.username
+      font-size: 1.9rem
+      width: 70%
+
+  tr:hover
+    background-color: lighten($row_bg_color, 3%)
+    cursor: pointer
+
+

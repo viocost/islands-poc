@@ -1,0 +1,120 @@
+.container.chat-container
+    .enter-chat-options-wrapper#auth-wrapper
+        .main-menu-container
+            .main-menu-elements-container
+                #login-container
+                    p: h3 LOGIN
+                    p: textarea#private-key(placeholder='Private key')
+                    p: button.btn#login-topic Login
+    #you_online
+        .user-name--wrap
+            span.user-name--greeting Hi,
+            input.heading-name--input#user-name(maxlength="255")
+
+
+
+        .topic-name--wrap
+           span Topic:
+           input.heading-name--input#topic-name(maxlength="255")
+
+    .chat-wrapper#chat_room
+        .chat-left-panel
+
+            .online-users
+                h3.online-users-heading Other participants:
+                #online-users-list
+                    .online-user-row
+            .island-connection-status-wrap
+                #connection-status--connected
+                    img(src="/img/online.png")
+                    span.connected Connected to island
+                #connection-status--disconnected
+                    div
+                        img(src="/img/doNotDisturb.png")
+                        span.disconnected Disconnected...
+                    div
+                        button.btn#re-connect Re-connect
+                #connection-status--connecting
+                    div
+                        img(src="/img/afk.png")
+                        span.connecting Connecting to island...
+                        img(src="/img/spinner.gif")
+
+        #chat-resizer
+        .chat
+            #chat_window
+            span#user-id
+            .control-container
+                .control-col.new-msg-input
+                    .select-member-wrap
+                        h4 To:
+                        select#select-member(name="participant")
+                            option(value="ALL") All
+                    .input-wrap
+                        .button-column
+                            img#sounds-switch(src="/img/sound-on.png")
+                        .flex-column.new-msg-input
+                            textarea#new-msg(placeholder='Enter your message', maxlength="65535")
+                            #chosen-files
+                .control-col.new-msg-buttons
+                    .send-button-wrap
+                        //.hint-wrap
+                        //    p.send-new-message-hint Enter - send. Ctrl+Enter - new line
+                        //    p.send-new-message-hint __code - start block of code. __end - end block of code
+                        button.btn.ld-ext-right#send-new-msg
+                            | Send
+                            .ld.ld-ring.ld-spin
+                                .attach-file-wrap
+                    input#attach-file(type="file" name="file" class="inputfile")
+                    label#attach-file-button(for="attach-file" )
+                        img(src="/img/clip-128.png")
+
+    //MODAL DISPLAY
+    #settings-view
+        .settings-container
+            .settings-menu#settings-menu
+                a.settings-item.active#s-option-invites INVITES
+                a.settings-item#s-option-participants PARTICIPANTS
+            .settings-wrapper
+                #invites-container
+                    .invites-heading
+                        h3 Pending invites
+                    .invite-control
+                        button.btn.ld-ext-right#refresh-invites
+                            | SYNC
+                            .ld.ld-ring.ld-spin
+                        button.btn.ld-ext-right#new-invite
+                            | NEW INVITE
+                            .ld.ld-ring.ld-spin
+                    .pending-invites#pending-invites
+                        .invite-wrap
+                            .invite-num
+                            .invite-id 5fed63643a3b8357208614fe1e86887776101c43569779ba6ad9f8f9059f528c
+                            .invite-del
+                                button.invite-del-button Delete
+                #participants-container
+                    .participants-wrapper
+                        .heading-wrapper
+
+                            .ph-wrap
+                                h5#participants--topic-name Topic: topic name
+
+                        #participants-records
+                            .participant-wrapper
+                                .p-nickname Ivan
+                                .p-rights 2
+                                .p-actions
+                                    .boot-participant Boot
+
+                #chat-settings
+
+
+#code-view
+    .code-view--content
+        span#close-code-view.close &times;
+        br
+        #code--content
+.modal-loader
+
+
+

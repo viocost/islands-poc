@@ -1,0 +1,32 @@
+.loading
+  border-top: 16px solid blue
+  border-right: 16px solid green
+  border-bottom: 16px solid red
+  border-left: 16px solid pink
+  border-radius: 50%
+  width: 120px
+  height: 120px
+  animation: spin 2s linear infinite
+
+@keyframes spin
+  0%
+    transform: rotate(0deg)
+
+  100%
+    transform: rotate(360deg)
+
+body.loading .modal-loader
+  overflow: hidden
+  display: block
+
+.modal-loader
+  display: none
+  position: fixed
+  z-index: 1000
+  top: 0
+  left: 0
+  height: 100%
+  width: 100%
+  background: rgba(255, 255, 255, 0.8)
+
+

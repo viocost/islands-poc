@@ -1,0 +1,85 @@
+'{"nickname":"kostia","publicKey":"123","publicKeyHash":"321","residence":"a.onion","rights":3}'
+
+Client Chat socket functions:
+
+1. Connect to Island
+	Just generic socket io connection with island
+	this connection doesn't mean anything other than you are just connected to your island chat agent. It doesn't mean that you are online at some topic
+
+2. Init topic
+	Request to islnad to init new topic and create history folder and file. Metadabta blob is required.
+	Should emit back success or fail
+
+3. Register online chat session
+	This requires topic ID, and public key hash.
+	This should make you online at some topic
+	It should save your session soemwhere on island (probably a file of active sessions)
+
+4. Disconnect
+	Closes the socket
+	An Island should remove your session and make you go offline, if session was active
+
+5. Shout message
+	Sends message to every participant of the topic.
+	Server should append the blob to history file and try to send to every participant
+
+6. Whisper message
+	Sends the message to one specific participant of your topic
+
+
+7. Send service message	
+
+8. Create invite
+
+9. Accept invite
+
+
+10. GetStatusAll
+	Sends ping to all participants in the topic.
+	Safe version:
+		Those who online reply.
+	Less safe version:
+		Island check sessions and replies if session is active	
+
+	 
+Client chat events	 
+
+
+
+Server chat functions:
+   Client calls:
+   	
+   	1. newMessage
+   		Passes newly received message from tor or locally to the client.
+   		This message must have a topicID and addressee public key hash.
+   		If such public key hash is not in active sessions: island drops the message
+   		Otherwise blob passed to client socket.
+   		Processing should happen on client side in browser
+
+   	
+    Client replies:
+	   	1. InitTopicSuccess
+	   	2. GoOnlineSuccess
+	   	3. GoOfflineSuccess
+
+	   	//in less safe model where island helps users to figure out who's online and who's offline
+	   	4. userStatusNotification
+	   	
+
+
+   Tor calls:
+
+
+Server chat events
+1. init_topic
+	Should init new topic and send succes or fail as result
+
+2. go_online
+	Should register online session 	
+	socketID, query{
+		publicKeyHash
+		topicID
+	}
+
+
+

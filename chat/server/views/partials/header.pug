@@ -1,0 +1,38 @@
+//
+//input#new-topic-name(placeholder="new tppic name")
+//input#new-topic-nickname(placeholder="new tppic nickname")
+//
+//input#join-topic-nickname(placeholder="join tppic nickname")
+//input#join-topic-invite(placeholder="invite code")
+
+
+.container
+	.header_wrap
+		.heading
+			h1.heading__main #{title}
+			span.version #{version}
+
+			if secured !== undefined
+				script.
+					const secured = #{secured};
+
+//		.navbar-wrap.navbar-right#help-item
+//			ul.navbar
+//				li.nav-item#help-button Help
+//
+//		.navbar-wrap.navbar-right#chat-menu
+//			ul.navbar
+//				li.nav-item#chat-view-button Chat
+//				li.nav-item#settings-view-button Options
+//				li.nav-item#logout-button Logout
+//
+//
+//		.navbar-wrap.navbar-right#admin-menu
+//			ul.navbar
+//				li.nav-item#to-chat Back to chat
+//		li.nav-item#admin-logout-button Logout
+
+
+
+script.
+	version = "#{version}"

@@ -1,0 +1,120 @@
+@import "../abstracts/variables"
+
+*,
+*::before,
+*::after
+  padding: 0
+  margin: 0
+  box-sizing: border-box
+
+html
+  font-size: 62.5%
+  font-family: sans-serif
+  height: 100%
+
+
+body
+  font-size: 1.5rem
+  height: 100vh
+  min-height: 500px
+  display: flex
+  flex-direction: column
+
+main
+  flex: 1
+  min-width: 50rem
+
+footer
+  display: flex
+  flex-direction: column
+  min-height: 3rem
+  height: 3rem
+  min-width: 55rem
+
+
+input
+  margin: 1rem 0 1rem 0
+  height: 4rem
+  font-size: 1.9rem
+  padding: 0.6rem
+  border-radius: 0.5rem
+  border: 0.1rem solid #b5b5b5
+  outline: none
+
+
+textarea
+  border: 0.1rem solid #b5b5b5
+  border-radius: 0.5rem
+  outline: none
+  height: 10rem
+  width: 25rem
+  margin: 1rem 0 1rem 0
+
+
+header
+  background-color: $header_background_color
+  color: $header_color
+  min-width: 55rem
+  height: 8rem
+  min-height: 8rem
+
+h1
+  font-size: 4rem
+
+h3
+  font-size: 2rem
+
+select
+  outline: none
+  padding: .3rem
+
+button
+  outline: none !important
+  &::-moz-focus-inner
+    border: 0
+  &:focus
+    outline: none !important
+
+.header_wrap
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  height: 100%
+
+.heading
+  padding:  2rem 0 1rem 0
+  .heading__main
+    font-weight: 100
+    color: whitesmoke
+    text-transform: uppercase
+    font-family: monospace
+    font-size: 3.5rem
+
+.online__heading-icon
+  i.fa
+    margin-right: 1.8rem
+    color: green
+
+
+.right-align
+  display: block
+  text-align: right
+
+.left-align
+  display: block
+  text-align: left
+
+
+
+.form-border
+  padding: 3rem
+  border: 1px solid #b5b5b5
+  border-radius: .5rem
+
+.flex-column
+  display: flex
+  flex-direction: column
+
+
+#help-link
+  margin-right: .5rem

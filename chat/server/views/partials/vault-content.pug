@@ -1,0 +1,29 @@
+.container.tingle-content-wrapper
+
+    #registration-complete--wrapper
+        h2 Setup completed
+        p Please <b>save your password!</b> There is no password recovery!
+        | Once you lose it - it's gone forever.
+        a(href="/") Proceed to login>>>
+
+    #vault-register--wrapper
+        div.form-border
+            h3 Create your password:
+            div: input#vault-new-password(type="password" placeholder="Enter new password" maxlength="50")
+            div: input#vault-new-password-confirm(type="password" placeholder="Confirm new password" maxlength="50")
+            div: button.btn#register-vault Save
+
+    #vault-login--wrapper
+        div.form-border
+            h3 Vault login:
+            div: input#vault-password(type="password" placeholder="Password" maxlength="50")
+            div: button.btn#vault-login-btn Login
+
+
+
+script.
+    isRegistration = function(){
+        let registration = #{registration}
+        console.log("Registration is " +  #{registration})
+        return  "asdf";
+    }

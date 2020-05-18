@@ -1,0 +1,20 @@
+{
+  "historyPath": "/mnt/hgfs/islandsData/history/",
+  "updatePath": "/mnt/hgfs/islandsData/update/",
+  "adminKeyPath": "/mnt/hgfs/islandsData/keys/",
+  "vaultsPath": "/mnt/hgfs/islandsData/vaults/",
+  "servicePath": "/mnt/hgfs/islandsData/service/",
+  "hiddenServicesPath": "/mnt/hgfs/islandsData/hs/",
+  "hsVaultMap": "/mnt/hgfs/islandsData/hsmap/",
+  "basePath": "/mnt/hgfs/islandsData/",
+  "torConnector" :{
+    "hiddenServiceHOST": "127.0.0.1",
+    "hiddenServicePORT": 4003,
+    "torListenerPort": 80,
+    "torControlHost": "127.0.0.1",
+    "torControlPort": 9051,
+    "torControlPassword" : "TheP@$sw0rd"
+  },
+  "vaultIdLength": 64
+
+}

@@ -1,0 +1,127 @@
+.container
+    if !secured
+        .login-setup--wrapper
+            #setup--wrapper
+                h2 Create your password:
+                input#new-admin-password(type="password", placeholder="Enter new password")
+                input#new-admin-password-confirm(type="password", placeholder="Confirm new password")
+                button.btn#island-setup Create vault!
+
+            #registration-complete--wrapper
+                h1 Setup has completed successfully!
+                p Please <b>save your password!</b> There is no password recovery!
+                | Once you lose it - it's gone forever.
+                a(href="/") Proceed to login>>>
+    else
+        #admin-login--wrapper
+            div.form-border
+                p: h3 Admin login:
+                p: input#admin-password(placeholder="Enter password", type="password")
+                p: button.btn#admin-login Login
+
+        .admin-content#admin-content-wrapper
+            #admin-section-heading Hidden services
+            .admin-content-wrap
+                .menu-wrap#island-admin-main-menu
+                    .nav-item.menu-item.active#page-two-button Hidden services
+                    .nav-item.menu-item#page-three-button Logs
+                .pages-wrap#admin-pages
+                    .page.active
+                        .admin-page-content-wrap
+                            .hidden-service-control-wrap
+                                #add-admin-service Add admin service
+                                #add-guest-service Add guest service
+                            h3.hs-table-title ISLAND HIDDEN SERVICES
+                            h6#hidden-services-empty You do not have any active hidden services yet. They will appear here once created. 
+                            #hs-container.active-hidden-services-container
+                                table
+                                    thead.hs-table
+                                        tr
+                                            td.hs-enum.hs-head #
+                                            td.hs-link.hs-head Link
+                                            td.hs-desc.hs-head Description
+                                            td.hs-type.hs-head Type
+                                            td.hs-status.hs-head Status
+                                            td.hs-actions.hs-head Actions
+                                    tbody#hidden-services-wrap.hs-table
+                                        tr
+                                            td.hs-enum #1
+                                            td.hs-link hgkjhdshgkhsdkjghfkds.onion
+                                            td.hs-desc My access
+                                            td.hs-type Admin access
+                                            td.hs-status Enabled
+                                            td.hs-actions Actions
+                                                ul
+                                                    li Activate
+                                                    li Deactivate
+                                                    li Regenerate link
+                                                    li Delete
+                                        tr
+                                            td.hs-enum #2
+                                            td.hs-link hgkjhdshgkhsdkjghfkds.onion
+                                            td.hs-desc For John
+                                            td.hs-type User access
+                                            td.hs-status Disabled
+                                            td.hs-actions Actions
+                                                ul
+                                                    li Activate
+                                                    li Deactivate
+                                                    li Regenerate link
+                                                    li Delete
+
+                    .page
+                        .admin-page-content-wrap.logs-control-wrap
+                            .log-control-item
+                                .log-control-button-row
+                                    button#load-logs Load logs
+                                    button#load-error-logs Load error logs
+                                .log-control-button-row
+                                    button#download-logs Download logs
+                            .log-control-item
+                                h6 Logs status
+                                select.logs-settings#logs-state
+                                    option(value="true") Enabled
+                                    option(value="false" selected) Disabled
+                            .log-control-item
+                                h6 HIGHEST LOG LEVEL
+                                select.log-highest-level#log-highest-level
+                                    option(value="error") error
+                                    option(value="warn") warn
+                                    option(value="info") info
+                                    option(value="verbose") verbose
+                                    option(value="debug") debug
+                                    option(value="silly") silly
+                            .log-control-item
+                                .log-control-button-row
+                                    button#log-reverse Reverse
+                            .log-control-item
+                                .filter-wrap
+                                    input#log-filter(placeholder="Filter regex", type="text")
+                                    .filter-field-selector-wrap
+                                        b Apply to:
+                                        select#filter-field-selector
+                                            option(value="all") Entire record
+                                            option(value="0") Timestamp
+                                            option(value="1") Level
+                                            option(value="2") Message
+                                            option(value="3") Context
+                            .log-control-item
+                                .log-control-button-row
+                                    button#clear-logs Clear logs
+
+                        .admin-page-content-wrap.log-content-wrap
+                            h6#logs-empty-message Click "Load logs" or "Load eror logs" to load logs and see them. You may also download logs as a text file by clicking on "Download logs" button
+                            table#log-content
+                                thead
+                                    tr
+                                        td.log-timestamp Timestamp
+                                        td.log-level Level
+                                        td.log-msg Message
+                                        td.add-value-cell Context
+                                tbody#log-records
+.modal-loader
+
+
+script.
+    getVersion = ()=>{return version}
+    window.getVersion = getVersion;

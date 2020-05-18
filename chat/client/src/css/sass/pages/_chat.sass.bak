@@ -1,0 +1,902 @@
+#waiting_room
+  width: 100%
+  height: 80vh
+  display: none
+
+pre
+  font-family: monospace
+  text-align: left
+  overflow: hidden
+  background-color: #cccccc
+  color: black
+  padding: 0.2rem
+  border-radius: 0.3rem
+  margin: 0.5rem
+  &:hover
+    cursor: pointer
+    box-shadow: 0 0 10px #9ecaed
+    transition: .2s
+
+
+.register-join-wrapper
+  display: flex
+  flex-direction: row
+  justify-content: space-around
+  margin-top: 10rem
+  .new-topic-wrapper
+    padding-left: 1rem
+  .join-by-invite-wrapper
+    padding-left: 1rem
+
+.topic-login-wrapper
+  display: flex
+  flex-direction: row
+  justify-content: center
+  margin-top: 10rem
+
+.chat-wrapper
+  @include horizontal-flex-container
+  justify-content: space-between
+  height: calc(100vh - 15rem)
+  min-width: 50rem
+  min-height: 24rem
+
+.chat-container
+  height: 100%
+  width: 95%
+
+
+#chatArea
+  margin-top: 4rem
+
+
+/**Chat window***/
+#chat_window
+  display: flex
+  flex-direction: column
+  @include scroll-style
+  overflow-x: hidden
+  overflow-y: auto
+  border: #cccccc 2px solid
+  flex-grow: 1
+  border-radius: 1rem
+  padding: 1rem 2rem 1rem 2rem
+  resize: none
+  height: 100%
+
+  .message
+    @include message
+    align-self: flex-start
+    background-color: #c4e8ff
+
+  .my_message
+    @include message
+    align-self: flex-end
+    background-color: #d6ffef
+    text-align: right
+    .msg-body
+      text-align: left
+
+  .service-record
+    @include message
+    width: 100%
+    background-color: #e6e6e6
+    text-align: left
+    font-size: 1.2rem
+    color: #8a8a8a
+    .msg-body
+      text-align: left
+
+  .ephemeral-msg
+     @include message
+     width: 100%
+     background-color: #fff0da
+     text-align: left
+     font-size: 1.2rem
+     color: #8a8a8a
+     .msg-body
+       text-align: left
+
+  .private-message
+    border: .3rem solid #b0afca
+
+.private-mark
+  font-style: italic
+  margin: 0 .5rem 0 .5rem
+
+.msg-time-stamp
+  font-style: italic
+  font-size: 1rem
+  margin: 0 .5rem 0 .5rem
+.msg-body
+  height: auto
+  overflow-wrap: break-word
+.m-author-id
+  display: none
+.m-recipient-id
+  display: none
+
+/**New message text area and send button***/
+.new-message-wrap
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+  *
+    display: block
+    margin: 1rem 0 1rem 0
+  #new-msg
+    min-width: 60%
+    padding: 1rem
+    border-radius: 0.5rem
+    resize: vertical
+  .send-button-wrap
+    display: flex
+    flex-direction: row
+    align-items: center
+    margin: 0
+    justify-content: flex-end
+    .hint-wrap
+      display: flex
+      flex-direction: column
+      align-items: flex-end
+      .send-new-message-hint
+        margin: 0 1.5rem 0 1.5rem
+        color: #9da3ad
+        font-size: 1.2rem
+        font-style: italic
+
+    #send-new-msg
+
+
+
+
+#enter_name
+  margin: 3rem 0 6rem 0
+  input
+    outline: 0
+    padding: 1rem
+    font-size: 2rem
+    border: 2px solid #f2f2f2
+    border-radius: 0.3rem
+
+
+#you_online
+  display: none
+  flex-direction: row
+  width: 100%
+  justify-content: space-between
+  height: 4rem
+
+.user-name--greeting
+  font-size: 1.5rem
+
+
+.heading-name--input
+  border: none
+  width: auto
+  min-width: 5rem
+  max-width: 60%
+  margin-left: 0.5rem
+  font-size: 1.5rem
+  padding: 0
+  text-overflow: ellipsis
+  &:focus
+    border: 1px solid #3a47ad
+
+#user-id
+  font-size: 1rem
+  color: #999
+  padding: .5rem
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+  text-align: end
+  width: inherit
+
+#chat-resizer
+  width: 10px
+  padding: 0
+  cursor: ew-resize
+  flex: 0 0 auto
+  &:before
+    content: ""
+    display: block
+    width: 2px
+    height: 100%
+    background: white
+    margin: 0 auto
+
+
+.participant-alias
+  border: none
+  width: 50%
+  font-size: 1.6rem
+  padding: .3rem
+  margin: 0
+  height: inherit
+  background-color: inherit
+  &:focus
+    border: 1px solid #3a47ad
+    border-radius: .5rem
+
+
+.user-name--wrap, .topic-name--wrap
+  display: flex
+  max-width: 50%
+  align-items: center
+  flex-direction: row
+
+  div
+    overflow: hidden
+    text-overflow: ellipsis
+.topic-name--wrap
+  justify-content: flex-end
+
+.select-member-wrap
+  display: flex
+  flex-direction: row
+  justify-content: flex-end
+  border-bottom: none
+  margin: 0
+  h4
+    margin: auto 1rem
+  select
+    background: none
+    padding: .8rem
+    min-width: 67%
+    border: 1px solid #b5b5b5
+    border-bottom: none
+    border-radius: .5rem .5rem 0 0
+    outline: none
+
+.island-connection-status-wrap
+  display: flex
+  padding: .5rem 1.5rem
+  border: 2px solid #CCCCCC
+  border-radius: 1rem
+
+#connection-status--connected
+  display: none
+  img
+     width: 1rem
+     height: 1rem
+     margin-right: 1rem
+  .connected
+    color: #109418
+  span
+     margin-right: 1rem
+     font-size: 1rem
+
+#connection-status--disconnected
+  display: none
+  align-items: center
+  div
+    display: flex
+    img
+        width: 1rem
+        height: 1rem
+        margin-right: 1rem
+    button
+      height: auto
+      padding: .4rem
+      font-size: 1rem
+      border: none
+      background-color: #c4ffc4
+      &:hover
+        transition: .2s
+        background-color: #7faa7f
+    .disconnected
+      color: red
+    span
+      margin-right: 1rem
+      font-size: 1rem
+
+
+
+#connection-status--connecting
+  display: none
+  img
+    width: 1rem
+    height: 1rem
+    margin-right: 1rem
+
+  .connecting
+    color: #525252
+  span
+    margin-right: 1rem
+    font-size: 1rem
+
+
+.online
+  color: orange
+
+
+
+.chat
+  @include vertical-flex-container
+  align-content: space-between
+  min-width: 69%
+  width: 100%
+
+
+
+
+
+.chat-left-panel
+  @include vertical-flex-container
+  order: 0
+  width: 30%
+  min-width: 18rem
+  margin: 0
+  resize: none
+  max-height: 90vh
+
+
+.online-users
+  @include vertical-flex-container
+  order: 0
+  border: 2px solid #cccccc
+  padding: 1rem
+  border-radius: 1rem
+  width: 100%
+  resize: none
+  margin-bottom: 1rem
+  height: 100%
+
+.online-users-heading
+  font-size: 1.5rem
+  border-radius: 0.5rem
+  padding: 0.5rem
+  background-color: #05330e
+  margin-bottom: .5rem
+  font-weight: bold
+  color: white
+
+.online-user-row
+  @include horizontal-flex-container
+  align-items: center
+  padding: .5rem
+  border-radius: .5rem
+  &:hover
+    background-color: #ccd9fa
+    cursor: pointer
+  input, span
+    width: 100%
+    overflow: hidden
+    text-overflow: ellipsis
+
+.online-user-icon
+  margin: 0 1rem 0 1rem
+  color: green
+
+.online-user-username
+  color: black
+
+
+
+
+.online-user-id
+  display: none
+
+
+
+#online-users-list
+  @include scroll-style
+  overflow-x: hidden
+  overflow-y: auto
+
+.participant-status
+  height: 1rem
+  width: 1rem
+  margin-right: 1rem
+
+#chat_room
+  display: none
+
+#login-info
+  display: none
+
+
+#code-view
+  display: none
+  position: fixed
+  z-index: 1
+  padding-top: 8rem
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  overflow: auto
+  background-color: rgb(0,0,0)
+  background-color: rgba(0,0,0,0.4)
+
+.code-view--content
+  background-color: #fefefe
+  margin: auto
+  padding: 20px
+  border: 1px solid #888
+  width: 80%
+
+
+.close
+  color: #aaaaaa
+  float: right
+  font-size: 28px
+  font-size: 28px
+  font-weight: bold
+  &:hover
+    color: #000
+    text-decoration: none
+    cursor: pointer
+    transition: .2s
+
+.modal-notification--heading
+  margin-bottom: 1rem
+
+.modal-notification--wrapper
+  margin: 2rem 2rem 2rem 2rem
+  padding: 2rem
+  overflow-wrap: break-word
+  overflow: auto
+
+.key-display
+  width: 80rem
+  heigth: 60rem
+
+
+
+/** settings view
+
+#settings-view
+  display: none
+
+.settings-container
+  display: flex
+  flex-direction: row
+  width: 100%
+  margin-top: 2rem
+  .settings-menu
+    display: flex
+    flex-direction: column
+    margin-right: 1rem
+    width: 15%
+    min-width: 20rem
+    .settings-item
+      padding: 1rem
+      width: 100%
+      border: none
+      color: black
+      text-decoration: none
+      display: block
+      cursor: pointer
+      &:hover
+        background-color: #a1a1a1
+        text-decoration: none
+      &.active
+        background-color: #c4e8ff
+  .settings-wrapper
+    margin-left: 1.5rem
+    margin-top: 2rem
+    width: 60%
+    overflow: auto
+    #invites-container
+      display: flex
+      flex-direction: column
+      .invite-heading
+        padding: 2rem 0 4rem 0
+      .invite-control
+        padding: 2rem 0 2rem 0
+      .pending-invites
+        width: 100%
+        display: flex
+        flex-direction: column
+        .invite-wrap
+          width: 100%
+          overflow: hidden
+          display: flex
+          flex-direction: row
+          border-top: 1px #e2e2e2 solid
+          border-bottom: 1px #e2e2e2 solid
+          &:hover
+            cursor: pointer
+          .invite-num
+            padding: 1rem
+            width: 3rem
+            align-self: center
+          .invite-id
+            visibility: hidden
+            width: 0
+            height: 0
+          & input.invite-rep
+            font-size: 1.6rem
+            padding: .5rem
+            margin: 1rem
+            align-self: center
+            overflow: hidden
+            width: 70%
+            border: none
+            border-radius: 0
+            &:hover
+              background-color: rgba(250, 139, 245, 0.09)
+            &:focus
+              background-color: rgba(250, 139, 245, 0.09)
+          .invite-control
+            padding: 1rem
+            width: 3rem
+            align-self: center
+
+
+.invite-copy
+  margin: auto
+  .invite-copy-button
+    margin: auto
+    border: none
+    border-radius: .5rem
+    padding: .5rem
+    background-color: #c0e9ff
+    color: #000
+    width: 12rem
+    overflow: hidden
+    &:hover
+      background-color: #3897d0
+.invite-del
+  margin: auto
+  .invite-del-button
+    margin: auto
+    border: none
+    padding: .5rem
+    background-color: rgba(255, 206, 208, 0.82)
+    border-radius: .5rem
+    color: #000
+    &:hover
+      background-color: #ff959a
+
+.version
+  font-size: 1rem
+
+
+.settings-wrapper
+  display: flex
+  width: 100%
+  flex-direction: column
+  &#invites-container
+    display: flex
+    flex-direction: column
+    height: auto
+    margin: 2rem 0 0 0
+    border-bottom: 1px solid #cccccc
+    border-top: 1px solid #cccccc
+    width: inherit
+    .invite-control
+      margin: 2rem 0 2rem 0
+    .pending-invites
+      display: flex
+      flex-direction: column
+      width: inherit
+      .invite-wrap
+        display: flex
+        flex-direction: row
+        width: inherit
+        height: auto
+        .invite-id
+          width: 75%
+          cursor: pointer
+        .invite-del
+          width: 20%
+          border-left: 1px solid #cccccc
+
+
+
+
+/**HEADER
+.navbar-right
+  align-self: flex-end
+
+.navbar-wrap
+  display: none
+  height: 3.5rem
+
+
+.message-id
+  display: none
+
+.navbar
+  list-style-type: none
+  display: flex
+  flex-direction: row
+  height: 100%
+  align-items: flex-end
+
+.nav-item
+  font-size: 1.4rem
+  padding: 1rem
+  height: 100%
+  width: auto
+  color: white
+  background-color: inherit
+  cursor: pointer
+  margin: 0 .5rem 0 .5rem
+  text-transform: uppercase
+  &:hover
+    background-color: #068600
+    transition: .4s
+  &.active
+    background-color: #860012
+
+
+
+.participants-wrapper
+  width: 100%
+  flex-direction: column
+  .heading-wrapper
+    display: flex
+    flex-direction: row
+    width: 100%
+    align-content: space-between
+  #participants-records
+    margin: 1rem 0 0 0
+    .participant-wrapper
+      display: flex
+      flex-direction: row
+      align-items: flex-start
+      border-top: 1px solid #c5c5c5
+      padding: 1rem
+
+      .participant-id
+        width: 0
+        height: 0
+        overflow: hidden
+        visibility: hidden
+      .p-nickname
+        margin:  auto .5rem
+        width: 30%
+        overflow: hidden
+      .p-rights
+        margin:  auto .5rem
+        width: 5%
+      .p-actions
+        margin:  auto .5rem
+        width: 20%
+        .boot-participant
+          color: white
+          border: none
+          border-radius: .5rem
+          width: 4.5rem
+          padding: .5rem
+          background-color: rgba(255, 0, 8, 0.5)
+          &:hover
+            cursor: pointer
+            background-color: rgba(255, 0, 8, 0.7)
+    .participant-wrapper-last
+      border-bottom:  1px solid #c5c5c5
+
+.attach-file-wrap
+  height: 5rem
+  display: flex
+  flex-direction: row
+  justify-content: flex-end
+  align-items: center
+  align-self: flex-end
+  width: 60%
+  min-width: 10rem
+  padding: 1rem
+  border-radius: 0.5rem
+
+.new-msg-buttons
+  width: 7rem
+  label
+    align-self: center
+    margin-top: 1.5rem
+    width: 4rem
+    height: 4rem
+    display: flex
+
+#chosen-files
+  margin-right: 1.7rem
+  display: flex
+  flex-direction: row
+  .chosen-file-wrap
+    background-color: #e1e1e1
+    padding: .2rem
+    border-radius: 1rem
+    height: inherit
+    display: flex
+    align-items: center
+    font-size: 1.8rem
+    font-weight: bolder
+    color: #1a2435
+    img
+      height: 20px
+      width: 20px
+      &:hover
+        filter:  drop-shadow(1px 1px 2px rgba(0,0,0,1))
+
+.inputfile + label
+  display: flex
+  flex-direction: row
+  img
+    border-radius: 1rem
+    cursor: pointer
+    width: 32px
+    height: 32px
+    transition: filter .2s ease
+    &:hover
+      filter:  drop-shadow(1px 1px 2px rgba(0,0,0,1))
+
+.control-container
+  max-height: 50%
+  display: flex
+  margin-top: 2rem
+  flex-direction: row
+  justify-content: flex-end
+
+.control-col
+  display: flex
+  flex-direction: column
+  margin-left: 2rem
+
+
+
+.msg-attachments
+  display: flex
+  margin-top: .8rem
+  align-self: flex-start
+
+.att-view
+  cursor: pointer
+  margin: 1rem
+  .att-state
+    display: none
+    .spinner
+      width: 1.7rem
+      margin-right: .3rem
+      display: flex
+  .att-name
+    font-weight: bold
+    color: #003d77
+    font-size: 1.6rem
+    margin-right: .4rem
+  .att-size
+    font-size: 1.1rem
+  .att-icon
+    width: 1.4rem
+    height: 1.4rem
+
+.att-info
+  display: none
+
+.input-wrap
+  display: flex
+  flex-direction: row
+  width: 100%
+  justify-content: flex-end
+  margin: 0
+
+  #new-msg
+    width: 100%
+    border-radius: .5rem 0 .5rem .5rem
+    height: 6.5rem
+    margin: 0 0 .5rem 0
+    resize: vertical
+  .button-column
+    display: flex
+    flex-direction: column
+    margin: 0
+    img
+      cursor: pointer
+      border-radius: 1rem
+      margin-right: 2rem
+      width: 3rem
+      height: 3rem
+      transition: filter .2s ease
+      &:hover
+        filter:  drop-shadow(1px 1px 2px rgb(137, 140, 151))
+    .disabled
+      filter: grayscale(100%)
+
+
+.new-msg-input
+  width: 100%
+
+
+
+.main-menu-container
+  display: flex
+  flex-direction: row
+  width: 100%
+  min-width: 85rem
+  margin-top: 10%
+  justify-content: center
+  .left-arrow-wrap
+    display: flex
+    flex-direction: row
+    margin-right: 5rem
+    align-items: center
+    height: 30rem
+    width: 13rem
+    img
+      margin: auto 0
+      opacity: .3
+      transition: filter .2s ease
+      &:hover
+        opacity: .9
+        filter: drop-shadow(1px 1px 2px rgb(137, 140, 151))
+    div
+      text-align: center
+
+  .right-arrow-wrap
+    display: flex
+    flex-direction: row
+    margin-left: 5rem
+    align-items: center
+    height: 30rem
+    width: 13rem
+    img
+      margin: auto 0
+      opacity: .3
+      transition: filter .2s ease
+      &:hover
+        opacity: .9
+        filter: drop-shadow(1px 1px 2px rgb(137, 140, 151)) opacity(1)
+    div
+      text-align: center
+  .main-menu-elements-container
+    width: 27%
+    display: flex
+    justify-content: center
+    margin: 2rem
+    padding: 2rem
+
+
+.arrow-subtitle
+  font-size: 1.9rem
+  color: gray
+  padding: 1.5rem
+  min-width: 8rem
+
+
+#login-container
+  display: flex
+
+#join-by-invite-container
+  display: none
+
+#new-topic-container
+  display: none
+
+#footer
+  display: flex
+  flex-direction: row
+  font-size: .8rem
+  align-items: center
+  .copyright
+    width: 100%
+    display: flex
+    justify-content: center
+  #view-logs
+    width: 5rem
+    text-align: right
+    color: gray
+    &:hover
+      color: blue
+      cursor: pointer
+
+#client-logs
+  display: none
+  width: 100vh
+  margin: 15rem 1rem 1rem 1rem
+  padding: 2rem 0 2rem 0
+  border-top: 1px #c6c6c6 solid
+  border-bottom: 2px #c6c6c6 solid
+  h3
+    margin-bottom: 1.5rem
+
+
+#close-client-logs
+  position: fixed
+  bottom: 3rem
+  right: 3rem
+
+
+
+

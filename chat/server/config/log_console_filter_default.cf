@@ -1,0 +1,35 @@
+# A default console filter configuration
+# It should be helpful for server-side debugging to filter
+# printed log messages by categories.
+#
+# This configuration does not affect what messages are stored in log files.
+
+[Main]
+# This option enables console output from log messages
+Console=false
+
+# This enables console filter.
+# If set to true - only log message from enabled categories
+# will be printed in the console
+#
+# If set to false - all log messages will be printed in the console, regardless
+# of enabled categories
+ConsoleFilter=true
+
+# This section defines enabled log categories.
+# When console filter is enabled - only messages
+# with enabled categories will be printed to the console
+[Categories]
+chat=true
+metadata=true
+transport=true
+session=true
+settings=true
+files=true
+login=true
+topic_join=true
+topic_create=true
+topic_delete=true
+invite=true
+admin=true
+service=true

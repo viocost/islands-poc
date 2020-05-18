@@ -1,0 +1,849 @@
+@import "../abstracts/dark"
+@import "../abstracts/mixins"
+@import "../abstracts/chat_var"
+
+
+// header
+.header-section-left
+  display: flex
+  flex-direction: row
+  align-items: center
+  img
+    height: 4rem
+    width: 4rem
+    margin: 1rem
+
+  #active-title
+    margin-left: 1rem
+
+
+#menu-button
+    width: 4rem
+    height: 4rem
+    margin: 1rem
+    background: transparent url("/img/menu.svg") no-repeat 0 50%
+    background-size: 100% 100%
+    &:hover
+        cursor: pointer
+        -webkit-filter: brightness(70%)
+        filter: birghtness(70%)
+        transition: .2s
+
+.menu-on
+    -webkit-filter: brightness(70%)
+    filter: birghtness(70%)
+
+.header-section-middle
+
+  display: flex
+  flex-direction: column
+  align-items: center
+  img
+    margin: 1rem
+    width: 4rem
+    height: 4rem
+    -webkit-filter: brightness(70%)
+    filter: birghtness(70%)
+
+    &:hover
+      cursor: pointer
+      -webkit-filter: brightness(100%)
+      filter: birghtness(100%)
+      transition: .2s
+
+  @media (max-width: $medium)
+    display: none
+
+.header-section-right
+  display: flex
+  flex-direction: row
+  img
+
+    -webkit-filter: brightness(70%)
+    filter: birghtness(70%)
+    width: 4rem
+    height: 4rem
+    margin: 1rem
+    &:hover
+      cursor: pointer
+      -webkit-filter: brightness(100%)
+      filter: birghtness(100%)
+      transition: .2s
+
+// header end
+
+//main start
+
+main
+  background-color: $main-background
+
+
+#main-container
+  height: calc(100vh - 6rem)
+  width: 100%
+  display: flex
+  flex-direction: row
+
+
+
+//~END main
+
+//Side panel
+
+.side-panel-container
+  display: flex
+  flex-direction: column
+  width: 30%
+  max-width: 40rem
+  height: 100%
+  align-items: flex-start
+  @media (max-width: $medium)
+    width: 100%
+    max-width: 100%
+
+.carousel-wrap
+  width: 100%
+  display: flex
+  flex-direction: row
+  align-items: center
+  height: 7rem
+  .btn-rotate
+    display: none
+    margin: 0 2.5rem 0 2.5rem
+    transition: .2s
+    &:hover
+      border-color: $button-hover
+      transition: .2s
+
+  .carousel
+    flex: 1
+    flex-direction: column
+    text-align: -webkit-center
+    padding: 1.5rem 1rem 1.5rem 0
+    color: $text-color
+    font-size: 2.5rem
+    font-weight: bold
+    border: none
+    outline: none
+    background-color: inherit
+    appearance: none
+    -webkit-appearance: none
+    -moz-appearance: none
+    -ms-appearance: none
+    &:-ms-expand
+      display: none
+    option
+      background-color: darken($main-background, 5%)
+      border: none
+      font-size: 1.7rem
+      outline: none
+
+
+  .spin-carousel
+    width: 2.5rem
+    height: 2.4rem
+    margin: 1.5rem 1rem 1.5rem 1rem
+
+
+.side-panel-wrapper
+  display: flex
+  flex-direction: column
+  flex: 1
+  width: 100%
+
+.side-block-wrap
+  overflow: auto
+  flex: 1
+
+.side-panel-block
+  display: flex
+  flex-direction: column
+  height: 100%
+
+.side-block-data-list
+  @include scroll-style
+  list-style-type: none
+  display: flex
+  flex: 1
+  flex-direction: column
+  list-style-type: initial
+  overflow: auto
+  scrollbar-color: $button-hover $main-background
+  list-style-position: inside
+  align-items: center
+
+.side-panel-button-row
+  display: flex
+  flex-direction: row
+  width: 90%
+  overflow: hidden
+  height: 6rem
+  margin-left: 1rem
+  margin-top: 1rem
+  
+
+.side-block-data-list-item
+  flex-direction: column
+  border-bottom: 1px solid darken($main-background, 5%)
+  padding: .5rem
+  display: flex
+  width: 100%
+  &:hover
+    background-color: darken($main-background, 5%)
+    cursor: pointer
+
+.topic-assets
+  margin-left: 2rem
+  width: calc(100% - 2rem)
+
+.topic-asset-item-wrap
+  padding: .5rem
+
+.invite-list-item
+  display: flex
+  flex-direction: row
+  padding: .5rem
+  color: $text-color
+  list-style: none
+  overflow: hidden
+  text-overflow: ellipsis
+  padding: .5rem
+  border-bottom: 1px solid darken($main-background, 5%)
+  white-space: nowrap
+  cursor: pointer
+  &:hover
+    background-color: darken($main-background, 5%)
+  .invite-icon
+    background: url("/img/invite-light.svg")
+    background-size: cover
+    width: 2rem
+    height: 2rem
+  .invite-label
+    color: $text-color
+    margin-left: 1rem
+    overflow: hidden
+    text-overflow: ellipsis
+    flex: 1
+
+.participant-list-item
+
+  display: flex
+  flex-direction: row
+  padding: .5rem
+  color: $text-color
+  list-style: none
+  overflow: hidden
+  text-overflow: ellipsis
+  padding: .5rem
+  border-bottom: 1px solid darken($main-background, 5%)
+  cursor: pointer
+
+  &:hover
+    background-color: darken($main-background, 5%)
+
+  .that-is-me
+    filter: invert(53%) sepia(95%) saturate(3424%) hue-rotate(88deg) brightness(100%) contrast(112%)
+
+  .participant-icon
+    background: url("/img/user-light.svg")
+    background-size: cover
+    width: 2rem
+    height: 2rem
+  .participant-label
+    color: $text-color
+    margin-left: 1rem
+    overflow: hiddne
+    text-overflow: ellipsis
+    white-space: nowrap
+    flex: 1
+    span
+      margin-right: .5rem
+
+.active-asset
+  background-color: $active-topic-asset
+  &:hover
+    background-color: lighten($active-topic-asset, 5%)
+
+
+
+.topic-row-wrap
+  display: flex
+  flex-direction: row
+
+
+.btn-expand-topic
+  width: 2rem
+  height: 2rem
+  background: url("/img/add-light.svg")
+  background-size: cover
+
+.btn-collapse-topic
+  background: url("/img/minus-light.svg")
+  background-size: cover
+
+.btn-top-row
+  width: 100%
+  margin: 0
+  padding-bottom: 1rem
+  border-bottom: 1px solid darken($main-background, 5%)
+  
+.btn-top
+  flex: 1
+  margin: 1rem
+  padding: 0
+  background-color: darken($main-background, 5%)
+
+.topic-name
+  font-size: 1.8rem
+  margin-left: 1.2rem
+  color: $text-color
+  display: flex
+  flex: 1
+
+
+
+.unread-messages
+  font-weight: bold
+  display: flex
+  padding: .5rem
+  background-color: darken($main-background, 17%)
+  font-size: 1.4rem
+  color: $text-color
+  border-radius: 40%
+  margin-right: 1rem
+
+.topic-in-focus
+  background-color: $topic-in-focus
+  &:hover
+    background-color: lighten($topic-in-focus, 5%)
+
+.ctx-topic-buttons
+  display: flex
+  flex-direction: row
+  margin: 2rem 1rem 1rem 1rem
+  flex-wrap: wrap
+  button
+    flex: 1
+
+
+.bottom-section
+  height: 40%
+  @media screen and (max-height: 800px)
+    display: none
+
+
+.connection-indicator-container
+  display: flex
+  flex-direction: row
+  flex-shrink: 1
+  height: 4rem
+  align-items: center
+  width: 100%
+  margin: 1rem
+
+  .connection-indicator-label-wrap
+    display: flex
+    flex-direction: row
+    .connection-indicator-label
+      display: flex
+      font-size: 1.3rem
+      color: $text-color
+      font-weight: 100
+      margin: 0 1rem
+      align-items: center
+    .reconnect-spinner
+      width: 2rem
+      height: 2rem
+      display: none
+    .reconnect-button
+      width: 10rem
+      height: 2rem
+      text-align: center
+      background-color: #ccc
+      color: #000
+      display: none
+      &:hover
+        background-color: #999
+
+  .connection-indicator
+    border-radius: 50%
+    max-width: 1rem
+    max-height: 1rem
+    width: 100%
+    height: 100%
+
+  .connected
+    background-color: green
+  .dicsonnected
+    background-color: orange
+  .error
+    background-color: red
+  .connecting
+    background-color: #b2f2ff
+  .unknown
+    background-color: grey
+
+.version-wrapper
+  display: flex
+  flex-direction: row
+  background-color: darken($main-background, 5%)
+  align-items: center
+  padding: 1rem
+  width: 100%
+  border-right: 1px solid $main-background
+  img
+    margin: 0 1rem 0 1rem
+    width: 3rem
+    height: 3rem
+  h3
+    color: darken($text-color, 5%)
+    font-size: 1.4rem
+    font-weight: 100
+
+
+
+
+  
+//~END side panel
+
+
+
+// Manage topic view
+
+.manage-topics-view
+  color: $text-color
+  display: flex
+  flex-direction: column
+  margin: 4rem
+
+  @media (max-width: $medium)
+    margin: .5rem;
+
+.manage-topics-list
+  color: $text-color
+  margin: 1rem 0 2rem 0
+  div
+    font-size: 1.6rem
+    padding: 1.3rem
+    border-bottom: 1px solid darken($main-background, 5%)
+    &:hover
+      background-color: darken($main-background, 5%)
+      cursor: pointer
+  .selected
+    background-color:  $topic-in-focus
+    &:hover
+      background-color:  lighten($topic-in-focus, 5%)
+      cursor: pointer
+
+
+
+// ~END Manage topic view
+
+//new message block
+
+#new-message-container
+  max-height: 50%
+  background-color: inherit
+  display: none
+  margin: 2rem 2rem 1rem 0
+  flex-direction: row
+  justify-content: flex-end
+
+.control-col
+  display: flex
+  flex-direction: column
+  margin-left: 2rem
+
+
+.private-label
+  display: none
+  flex-direction: row
+  justify-content: flex-end
+  color: $text-color
+  margin: .5rem
+  img
+    width: 2rem
+    height: 2rem
+    margin-right: 1rem
+  span
+    margin-right: 1rem
+
+.select-member-wrap
+  display: flex
+  flex-direction: row
+  justify-content: flex-end
+  border-bottom: none
+  margin: 0
+  color: $text-color
+  h4
+    margin: auto 1rem
+  select
+    color: $text-color
+    background: $main-background
+    padding: .8rem
+    min-width: 37%
+    //border: 1px solid #b5b5b5
+    border: none
+    border-bottom: 1px solid darken($main-background, 5%)
+    border-radius: .5rem .5rem 0 0
+    outline: none
+
+
+.input-wrap
+  display: flex
+  flex-direction: row
+  width: 100%
+  justify-content: flex-end
+  margin: 0
+
+  #new-msg
+    width: 100%
+    border-radius: .5rem 0 .5rem .5rem
+    height: 3.5rem
+    margin: 0 0 .5rem 0
+    resize: vertical
+    background-color: $main-background
+    color: $text-color
+    border: none
+  .button-column
+    display: flex
+    flex-direction: column
+    margin: 0
+    img
+      cursor: pointer
+      border-radius: 1rem
+      margin-right: 2rem
+      width: 3rem
+      height: 3rem
+      transition: filter .2s ease
+      &:hover
+        filter:  drop-shadow(1px 1px 2px rgb(137, 140, 151))
+    .disabled
+      filter: grayscale(100%)
+
+
+.new-msg-input
+  width: 100%
+
+.new-message-wrap
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+  *
+    display: block
+    margin: 1rem 0 1rem 0
+  #new-msg
+    background-color: $main-background
+    min-width: 60%
+    padding: 1rem
+    border-radius: 0.5rem
+    resize: vertical
+  .send-button-wrap
+    display: flex
+    flex-direction: row
+    align-items: center
+    margin: 0
+    justify-content flex-end
+    .hint-wrap
+      display: flex
+      flex-direction: column
+      align-items: flex-end
+      .send-new-message-hint
+        margin: 0 1.5rem 0 1.5rem
+        color: #9da3ad
+        font-size: 1.2rem
+        font-style: italic
+
+.btn-send
+  border: none
+  margin: 0
+  outline: none
+  background-color: $main-background
+  color: $text-color
+  font-size: 1.8rem
+  padding: .8rem
+  transition: .2s
+  &:hover
+    background-color: $button-hover
+    transition: .2s
+
+.attach-file-dummy
+  display: none
+
+.attach-file-wrap
+  height: 5rem
+  display: flex
+  flex-direction: row
+  justify-content: flex-end
+  align-items: center
+  align-self: flex-end
+  width: 60%
+  min-width: 10rem
+  padding: 1rem
+  border-radius: 0.5rem
+
+.new-msg-buttons
+  width: 7rem
+  label
+    align-self: center
+    margin-top: 1.5rem
+    width: 4rem
+    height: 4rem
+    display: flex
+
+#chosen-files
+  margin-right: 1.7rem
+  display: flex
+  flex-direction: row
+  .chosen-file-wrap
+    background-color: lighten($main-background, 5%)
+    padding: .2rem
+    border-radius: .5rem
+    height: inherit
+    display: flex
+    align-items: center
+    font-size: 1.6rem
+    font-weight: bolder
+    color: #e1e1e1
+    img
+      height: 20px
+      width: 20px
+      &:hover
+        filter:  drop-shadow(1px 1px 2px rgba(266,266,266,1))
+
+
+.inputfile
+  width: 0.1px
+  height: 0.1px
+  opacity: 0
+  overflow: hidden
+  position: absolute
+  z-index: -1
+
+.inputfile + label
+  display: flex
+  flex-direction: row
+  img
+    border-radius: 1rem
+    cursor: pointer
+    width: 32px
+    height: 32px
+    transition: filter .2s ease
+    &:hover
+      filter:  drop-shadow(1px 1px 2px rgba(0,0,0,1))
+
+.new-msg-buttons
+  width: 7rem
+  label
+    align-self: center
+    margin-top: 1.5rem
+    width: 4rem
+    height: 4rem
+    display: flex
+
+
+// ~END new message block
+
+// Login and registration
+.form-outer-wrapper
+  display: block
+  margin: 10% auto
+  color: $text-color
+  .form-border
+    background-color: #111113
+    border: none
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    p
+      margin: 1rem 0 1rem 0
+
+.form-input
+  background-color: $main-background
+  color: $text-color
+  border: none
+  outline: none
+
+.form-button
+  border-radius: .4rem
+  background-color: $main-background
+  color: $text-color
+  border: none
+  outline: none
+  padding: 1rem
+  font-size: 1.8rem
+  &:hover
+    background-color: $button-hover
+    transition: .2s
+
+// ~END registration
+
+// MESSAGES
+
+.main-panel-container
+  background-color: $messages-panel-background
+  width: 70%
+  height: 100%
+  display: flex
+  flex-direction: column
+  flex: 1
+  overflow: hidden
+  .messages-panel-container
+    @include scroll-style
+    width: 100%
+    display: flex
+    flex: 1
+    background-color: inherit
+    border-bottom: 2px solid $main-background
+    overflow-x: hidden
+    overflow-y: auto
+    flex-grow: 1
+    border-radius: 1rem
+    padding: 1rem 2rem 1rem 2rem
+    resize: none
+    height: 100%
+
+.messages-window
+  width: 100%
+  display: flex
+  flex-direction: column
+
+
+
+.message
+  @include message
+  align-self: flex-start
+  //background-color: lighten($main-background, 5%)
+
+
+.my_message
+  @include message
+  color: #5bde25
+  //align-self: flex-end
+  //background-color: #d6ffef
+  //text-align: right
+  //.msg-body
+    //text-align: left
+
+.service-record
+  @include message
+  width: 100%
+  text-align: left
+  font-size: 1.2rem
+  color: #4c4c4c
+  .msg-body
+    text-align: left
+
+.ephemeral-msg
+  @include message
+  width: 100%
+  text-align: left
+  font-size: 1.2rem
+  color: #8a8a8a
+  .msg-body
+    text-align: left
+
+.private-message
+  border: .3rem solid #b0afca
+
+.private-mark
+  font-style: italic
+  margin: 0 .5rem 0 .5rem
+
+.msg-time-stamp
+  font-style: italic
+  font-size: 1rem
+  margin: 0 .5rem 0 .5rem
+.msg-body
+  height: auto
+  overflow-wrap: break-word
+.m-author-id
+  display: none
+.m-recipient-id
+  display: none
+.message-id
+  display: none
+
+//Attachments
+.attach-file-wrap
+  height: 5rem
+  display: flex
+  flex-direction: row
+  justify-content: flex-end
+  align-items: center
+  align-self: flex-end
+  width: 60%
+  min-width: 10rem
+  padding: 1rem
+  border-radius: 0.5rem
+
+.uploading-animation
+  display: none
+  width: 4rem
+  height: 4rem
+
+.msg-attachments
+  display: flex
+  align-self: flex-start
+
+.att-view
+  cursor: pointer
+  margin: .5rem 0
+  background-color: $main-background
+  padding: .5rem
+  .att-state
+    display: none
+    .spinner
+      width: 1.7rem
+      margin-right: .3rem
+      display: flex
+  .att-name
+    font-weight: bold
+    color: #ff5e5e
+    font-size: 1.6rem
+    margin : 0 .4rem
+  .att-size
+    font-size: 1.1rem
+    color: #ff5e5e
+  .att-icon
+    width: 1.4rem
+    height: 1.4rem
+  &:hover
+    background-color: lighten($main-background, 5%)
+    transition: .2s
+
+.att-info
+  display: none
+
+
+// ~END MESSAGES
+
+
+.topic-in-focus-label
+  font-size: 2rem
+  position: fixed
+  right: 5rem
+  font-weight: 100
+  color: grey
+
+.password-warning-wrap
+  pagging: 2rem 0 2rem 0
+  display: flex
+  flex-direction: row
+  width: 26rem
+  img
+    height: 1.7rem
+    width: 2rem
+  div
+    margin-left: 1rem
+    display: flex
+    flex-direction: column
+
+    p
+      margin: .5rem 0 1rem 0
+      color: #777
+
+
+// Settings
+// ~END Settings
+

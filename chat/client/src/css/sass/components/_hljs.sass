@@ -1,0 +1,61 @@
+@import "../abstracts/dark"
+.hljs
+  @include scroll-style
+  display: block
+  overflow-x: auto
+  padding: 0.5em
+  background: $main-background
+  font-size: 1.3rem
+  color: #aaa
+  margin: 1rem 0
+
+/* Base color: saturation 0;
+
+.hljs-subst
+  color: #e2e2e2
+
+.hljs-comment
+  color: #888888
+
+.hljs-keyword, .hljs-attribute, .hljs-selector-tag, .hljs-meta-keyword, .hljs-doctag, .hljs-name
+  font-weight: bold
+  color: #468aea
+
+/* User color: hue: 0
+
+.hljs-type, .hljs-string, .hljs-number, .hljs-selector-id, .hljs-selector-class, .hljs-quote, .hljs-template-tag, .hljs-deletion
+  color: #ff5e5e
+
+.hljs-title, .hljs-section
+  color: #ff5e5e
+  font-weight: bold
+
+.hljs-regexp, .hljs-symbol, .hljs-variable, .hljs-template-variable, .hljs-link, .hljs-selector-attr, .hljs-selector-pseudo
+  color: #BC6060
+
+/* Language color: hue: 90;
+
+.hljs-attr
+  color: #468aea
+
+.hljs-literal
+  color: #46ea7d
+
+.hljs-built_in, .hljs-bullet, .hljs-code, .hljs-addition
+  color: #397300
+
+/* Meta color: hue: 200
+
+.hljs-meta
+  color: #1f7199
+
+.hljs-meta-string
+  color: #4d99bf
+
+/* Misc effects
+
+.hljs-emphasis
+  font-style: italic
+
+.hljs-strong
+  font-weight: bold

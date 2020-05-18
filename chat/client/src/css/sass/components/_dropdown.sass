@@ -1,0 +1,79 @@
+.dropdown-wrap
+  position: relative
+  min-width: 90px
+  width: 100%
+
+.dropdown-button
+  width: 100%
+  font-size: 17px
+  padding: 10px 30px 10px 10px
+  background-color: white
+  border: 1px solid #e2e2e2
+  border-radius: .3rem
+  color: #555555
+  &:hover, &:focus
+    border: 1px solid rgba(153, 0, 255, 0.43)
+    color: black
+    outline: none
+    transition: all 0.3s ease-in-out
+
+.dropdown-button:after
+  content: ''
+  position: absolute
+  top: 50%
+  left: 80%
+  transform: translateY(-50%)
+  width: 0
+  height: 0
+  border-left: 5px solid transparent
+  border-right: 5px solid transparent
+  border-top: 5px solid #555555
+
+
+.dropdown-wrap:focus .dropdown,
+.dropdown-wrap:focus-within .dropdown,
+.dropdown-wrap:hover .dropdown
+  visibility: visible
+  opacity: 1
+  z-index: 1
+  transform: translateY(0%)
+  transition-delay: 0s, 0s, 0s
+
+
+
+.dr-red
+  color: #b94747
+
+.dr-green
+  color: #73B969
+
+
+
+.dropdown
+  list-style: none
+  background-color: #efefef
+  visibility: hidden
+  opacity: 0
+  position: absolute
+  top: 100%
+  left: 0
+  padding: 0
+  transform: translateY(-2em)
+  display: flex
+  flex-direction: column
+  width: fit-content
+  z-index: -1
+  box-shadow: 0 .8rem 1.6rem 0 rgba(0,0,0,0.2)
+  transition: all 0.1s ease-in-out 0s, visibility 0s linear 0.1s, z-index 0s linear 0.01s
+  li
+    padding: .7rem
+    cursor: pointer
+    text-align: left
+    display: inline-block
+    white-space: nowrap
+    &:hover
+      background-color: #e2e2e2
+      transition: all 0.2s
+
+
+    

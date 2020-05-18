@@ -1,0 +1,105 @@
+@import "../abstracts/variables"
+@import "../abstracts/dark"
+
+*,
+*::before,
+*::after
+  padding: 0
+  margin: 0
+  box-sizing: border-box
+
+html
+  font-size: 62.5%
+  font-family: sans-serif
+
+
+body
+  font-size: 1.5rem
+  height: 100vh
+  display: flex
+  flex-direction: column
+  background-color: $main-background
+
+main
+  flex: 1
+
+
+header
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  background-color: rgb(30, 31, 38)
+  color: #ccc
+
+
+
+input
+  margin: 1rem 0 1rem 0
+  height: 4rem
+  font-size: 1.9rem
+  padding: 0.6rem
+  border-radius: 0.5rem
+  border: 0.1rem solid #b5b5b5
+  outline: none
+
+
+textarea
+  border: 0.1rem solid #b5b5b5
+  border-radius: 0.5rem
+  outline: none
+  height: 10rem
+  width: 25rem
+  margin: 1rem 0 1rem 0
+
+
+
+h1
+  font-size: 4rem
+
+h3
+  font-size: 2rem
+
+select
+  outline: none
+  padding: .3rem
+
+
+
+
+.heading
+  padding:  2rem 0 1rem 0
+  .heading__main
+    font-weight: 100
+    color: whitesmoke
+    text-transform: uppercase
+    font-family: monospace
+    font-size: 3.5rem
+
+.online__heading-icon
+  i.fa
+    margin-right: 1.8rem
+    color: green
+
+
+.right-align
+  display: block
+  text-align: right
+
+.left-align
+  display: block
+  text-align: left
+
+
+
+.form-border
+  padding: 3rem
+  border: 1px solid #b5b5b5
+  border-radius: .5rem
+
+.flex-column
+  display: flex
+  flex-direction: column
+
+
+#help-link
+  margin-right: .5rem

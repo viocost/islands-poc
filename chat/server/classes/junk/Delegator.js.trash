@@ -1,0 +1,41 @@
+const Err = require("./IError.js");
+
+class Delegator{
+    constructor(historyManager = Err.required(),
+                topicAuthorityManager = Err.required(),
+                clientConnectionManager = Err.required(),
+                crossIslandMessenger = Err.required(),
+                ){
+
+        this._hm = historyManager;
+        this._ta = topicAuthorityManager;
+        this._ccm = clientConnectionManager;
+        this._md = crossIslandMessenger;
+
+        this.setWorkers()
+    }
+
+    setWorkers(){
+        this._workers = {
+            history_manager: this._hm,
+            topic_authority_manager: this._hm,
+            client_connection_manager: this._hm,
+            message_dispatcher: this._hm,
+        }
+    }
+
+
+
+    async delegate(worker = Err.required(),
+             method = Err.required(),
+             args){
+        return this._workers[worker][method](args);
+    }
+
+
+
+
+
+}
+
+module.exports = Delegator;

@@ -1,0 +1,129 @@
+include why-register
+.container
+    .help-toc
+        ol
+            li
+                a(href="#getting-started") Getting started
+            li
+                a(href="#login") Login
+            li
+                a(href="#Vault") Vault
+            li
+                a(href="#create-topic") Create Topic
+            li
+                a(href="#join-topic") Join Topic
+            li
+                a(href="#inviting") Inviting
+            li
+                a(href="#naming") Naming System
+            li
+                a(href="#messaging") Messaging
+            li
+                a(href="#hidden-services") Hidden services
+
+
+    .help-content
+        .help-block
+            a#getting-started
+            h2 Getting started
+            p <b> Create your password. </b>
+                | <br>If you are the admin of the Island - go to <a href="/admin">admin page</a> and follow
+                | the instructions.
+                | <br>If you are a guest and haven't created a password yet - go to your
+                | <a href="/"> homepage</a> and follow the instructions there.
+                | <br> <b>WARNING! </b> There is no password recovery.  If you forget it - you will not be able to decrypt your data.
+                | You may change your password once you have logged in.
+
+
+
+        .help-block
+            a#login
+            h2 Login
+            p  Use your password to login into <a href="/">your vault </a>
+                | <br>If you are the owner of the island - use your password to login into <a href="/admin">admin panel.</a>
+
+
+        .help-block
+            a#vault
+            h2 Vault
+            p Vault is your personal encrypted storage, which keeps all topics' metadata and your keys.
+                | The vault is encrypted with your password, and all the data is encrypted with AES-256 key.
+                | When you login into a topic - the proper key is pulled, decrypted and used to log you in.
+
+
+        .help-block
+            a#create-topic
+            h2 Create topic
+            p You may create a topic by clicking the "Create topic" button, you will be
+                | prompted to enter your nickname and alias for the topic. The alias will be
+                | displayed in the topic's card in your vault.
+
+            a#join-topic
+            h2 Join topic
+            p If you have an invite code - click "Join topic" button, paste your invite code and fill the rest of the form.
+                | The topic will be added to  your vault.
+                | You may only join topic if topic owner's island is online.
+
+        .help-block
+            a#inviting
+            h2 Inviting
+            p Once you're logged into a topic, you will see the chat window. If you are
+                | the owner of the topic - you may create a one-time invite code and send it to
+                | your friends, so they can join the topic on their islands.
+                | Inviting is limited to topic owner, and besides that admin's Island must be
+                | running in order for new member to join.
+                | <br> All invites live until used or deleted by the topic owner.
+                | <br> You may assign aliases to each invite code you have created.
+
+            a#naming
+            h2 Naming system
+            p Each topic member has an ID, which is SHA256 hash of member's public key and remains unchanged.
+                | There is a nickname chosen by each member, which can be changed at any time.
+                | If a member changes his/her name - there is a service message issued that notifies other
+                | members of the member's name change.
+                | <b>To change your nickname </b> - click on your name in the top left
+                | corner and enter your new nickname and press "Enter".
+                | <br>In addition, every member can assign <b>aliases</b> to other members of the topic
+                | Those aliases are private and do not react to nickname changes.
+                | <br><b>Example:</b> suppose you are in the same topic with two other members, named John
+                | and John15. You can assign them aliases: John_Smith and John_Travolta. Now all
+                | the messages in the chat will be appearing as John-Smith - John and John_Travolta -
+                | John15. Those aliases are private to you.
+
+
+                | <b>The topic name</b> is displayed in the top right corner. Originally it is the one picked by
+                | the topic owner, however any member can assign alias to it.
+                | The name of the topic is different from the alias in the vault.
+
+            a#messaging
+            h2 Messaging
+            p   You may send public and private messages. By default messages are public.
+                | To send a private message - select a member in the dropdown list.
+                | You may also send files. Keep in mind that all the files are sent over TOR, so transmission of large files
+                | may take a long time. <br> To insert a pre-formatted code block - first type <i>__code</i> then paste
+                | the code block. If you wish to add more text after the code block - enter <i>__end</i> after the code block
+                | and then type the rest of the message.
+
+
+            a#hidden-services
+            h2 Hidden services
+            p  Islands operate on top of TOR and TOR hidden services are used to find an island or a chat member. 
+                | You can create hidden service to reach and use your island from another remote computer using TOR browser.
+                | This is especially convenient if you don't have real IP address: your island may stay behind your home router, 
+                | while still being accessible via TOR hidden service.
+                
+            p  You may also create hidden services for your guests, so they could try to use islands without setting up their own. Simply create 
+                | Simply create guest hidden service from your admin panel and pass the link to your friend, and your friend will be able 
+                | to use your island via TOR browser. Nevertheless, Islands users are encouraged to each have their own island.
+                
+            
+
+
+script.
+    document.addEventListener('DOMContentLoaded', event => {
+        document.querySelector("main").classList.add("main-help");
+    })
+
+
+if chapter === "why-register"
+    +why_register()

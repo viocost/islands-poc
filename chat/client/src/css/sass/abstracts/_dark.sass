@@ -1,0 +1,43 @@
+$main-background: #2f3440
+
+//$button-hover: #385841
+$button-hover: #00cc00
+
+$text-color: #eee
+
+$messages-panel-background: darken($main-background, 5%)
+
+
+@mixin scroll-style
+  &::-webkit-scrollbar
+    width: .5rem
+    height: .5rem
+    background-color: none
+  &::-webkit-scrollbar-track
+    //-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1)
+    -webkit-box-shadow: none
+    //background-color: #F5F5F5
+    background-color: none
+    border-radius: 10px
+  &::-webkit-scrollbar-thumb
+    border-radius: 10px
+    background-color: none
+    background-image: -webkit-gradient(linear, 40% 0%, 75% 84%,  from(#4D9C41),  to(#19911D),  color-stop(.6,#54DE5D))
+
+
+$topic-in-focus: #385841
+
+$active-topic-asset: #135384
+
+button
+    margin: .8rem .8rem .8rem 0
+    padding: 1rem
+    background-color: darken($main-background, 5%)
+    border: none
+    cursor: pointer
+    outline: none
+    font-size: 1.6rem
+    color: $text-color
+    &:hover
+        background-color: $button-hover
+        transition: .2s

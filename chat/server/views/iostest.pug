@@ -1,0 +1,133 @@
+doctype html
+html
+    head
+        title Ios test
+        script(src="/js/socket.io.js")
+    body
+        h1 This is the test page
+
+        p: button(id="xhr") Test xhr connection
+        p: button(id="websocket") Test websocket connection
+        p: button(id="socketio") Test socket.io connection
+        h3 Output:
+        pre(id="output")
+
+
+
+script.
+    console.log = function(str){
+        let output = document.getElementById("output")
+        output.innerHTML = output.innerHTML + "\n" + str
+    }
+
+    window.onerror = function(msg){
+
+        console.log("UNCAUGHT WINDOW ERROR: " + msg);
+
+    }
+
+    function testXhr(){
+        console.log("Testing XHR")
+    }
+
+    function socketio(){
+        console.log("Testing socket io")
+        let timeout = 4000;
+        let attempt = 0;
+        let maxAttempts = 5;
+
+        socket = io('/ios', {
+            reconnection: false,
+            forceNew: true,
+            autoConnect: false,
+            upgrade: false,
+            transport: ["xhr"]
+        })
+
+        attemptConnection = ()=>{
+            attempt++;
+            console.log("Connection attempt: " + attempt)
+            socket.open()
+
+        }
+
+
+        socket.on("connect", ()=>{
+            console.log("Socketio connection established!")
+        })
+
+        socket.on("disconnect", ()=>{
+            console.log("Disconnected from server")
+        })
+
+        socket.on("connect_error", (err)=>{
+            console.log("CONNECT ERRROR: " + err);
+            if(attempt < maxAttempts){
+                    setTimeout(attemptConnection, timeout);
+                }else{
+                    console.log("Connection failed")
+                }
+        })
+
+        socket.on("hello" , ()=>{
+            console.log("Got HELLO!")
+        })
+
+        socket.on("connect_timeout", ()=>{
+            console.log("CONNECT TIMEOUT");
+
+            if(attempt < maxAttempts){
+                    setTimeout(attemptConnection, timeout);
+                }else{
+                    console.log("Connection failed")
+                }
+        })
+
+        attemptConnection();
+    }
+
+
+    function testWebsocket() {
+        try {
+
+            let endpoint = document.location.host
+            console.log("Connecting to " + endpoint + "   ...")
+            let attempted = 0;
+            let connectionAttempts = 7;
+            let reconnectionDelay = 5000
+
+
+            let s = new WebSocket("ws://" + endpoint)
+
+
+
+            s.addEventListener('open', function () {
+                console.log("Connection established");
+            });
+
+
+            s.onerror = function (err) {
+
+                throw ('Connection Failed');
+
+
+
+            }
+
+
+            s.onmessage = function(msg){
+                console.log("MESSAGE: " + msg.toString());
+            }
+
+
+
+
+        } catch (err) {
+            console.log("!! ERROR: " + err.toString())
+        }
+
+    }
+
+    document.getElementById("xhr").addEventListener("click", testXhr)
+    document.getElementById("websocket").addEventListener("click", testWebsocket)
+    document.getElementById("socketio").addEventListener("click", socketio)

@@ -1,0 +1,9 @@
+{
+  "BASE_PATH": "./islandsData",
+  "TOR_PASSWD": "",
+  "TOR_CONTROL_PORT": 15141,
+  "TOR_CONTROL_HOST": "127.0.0.1",
+  "TOR_PORT": 15140,
+  "TOR_HOST": "127.0.0.1",
+  "vaultIdLength": 64
+}

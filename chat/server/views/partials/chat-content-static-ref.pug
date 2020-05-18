@@ -1,0 +1,122 @@
+header.chat-header
+    .header-section-left
+        #menu-button.menu-on
+
+        h3#active-title Welcome to Islands!
+        //button#print-dpi DPI
+        //button#print-max Max width
+    .header-section-middle
+    .header-section-right
+        img#admin(src="/img/admin-user.svg")
+        img#sound-control(src="/img/sound-on.svg")
+        img.logo(src="/img/island.svg")
+        img#settings-btn(src="/img/settings-light.svg")
+        img#logout(src="/img/logout-light.svg")
+
+main
+    #settings-container
+        h1 SETTINGS
+
+    #main-container.container.tingle-content-wrapper
+        .side-panel-container
+
+            .side-panel-block.top-block
+                .carousel-wrap
+                    select.carousel
+                        option Topics
+                        option Participants
+                        option Invites
+                    img.spin-carousel(src="/img/next.svg")
+                .side-panel-block-body
+                    ul.side-panel-list
+                        li.side-panel-list-item Topic 1
+                        li.side-panel-list-item Topic 2
+                        li.side-panel-list-item Topic 3
+                        li.side-panel-list-item Topic 4
+                        li.side-panel-list-item Topic 5
+                    .side-panel-data-control
+                        div
+                            button Create topic
+                            button Join topic
+
+
+
+            .side-panel-block.bottom-block
+                .carousel-wrap
+                    select.carousel
+                        option Topics
+                        option(selected=true) Participants
+                        option Invites
+                    img.spin-carousel(src="/img/next.svg")
+                .side-panel-block-body
+                    ul.side-panel-list
+                        li.side-panel-list-item x432xsdklj(John)
+                        li.side-panel-list-item Jax(Joseph)
+                        li.side-panel-list-item Ian(ian)
+                        li.side-panel-list-item xd(Lizzard)
+
+        .main-panel-container
+            .messages-panel-container
+            .new-message-container
+                .control-col.new-msg-input
+                    .select-member-wrap
+                        h4 To:
+                        select#select-member(name="participant")
+                            option(value="ALL") All
+                    .input-wrap
+                        .button-column
+                            label#attach-file-button(for="attach-file" )
+                                img(src="/img/clip.svg")
+                            //img#sounds-switch(src="/img/sound-on.png")
+                        .flex-column.new-msg-input
+                            textarea#new-msg(placeholder='Enter your message. Ctrl+Enter - new line. Enter - send.', maxlength="65535")
+                            #chosen-files
+                .control-col.new-msg-buttons
+                    .send-button-wrap
+                        //.hint-wrap
+                        //    p.send-new-message-hint Enter - send. Ctrl+Enter - new line
+                        //    p.send-new-message-hint __code - start block of code. __end - end block of code
+                        button#send-new-msg.ld-ext-right
+                            | Send
+                            .ld.ld-ring.ld-spin
+                                .attach-file-wrap
+                    input#attach-file(type="file" name="file" class="inputfile")
+                    //label#attach-file-button(for="attach-file" )
+                    //    img(src="/img/clip-128.png")
+
+        //div
+        //    #side-menu
+        //    #messages
+        //div
+        //    #status
+        //    #new-message
+
+
+
+        //   #logs-container
+
+
+
+
+    //#registration-complete--wrapper
+        //h2 Setup completed
+        //p Please <b>save your password!</b> There is no password recovery!
+        //| Once you lose it - it's gone forever.
+        //a(href="/") Proceed to login>>>
+    //#vault-register--wrapper
+        //div.form-border
+            //h3 Create your password:
+            //div: input#vault-new-password(type="password" placeholder="Enter new password" maxlength="50")
+            //div: input#vault-new-password-confirm(type="password" placeholder="Confirm new password" maxlength="50")
+            //div: button.btn#register-vault Save
+
+
+
+if secured !== undefined
+    script.
+        const secured = #{secured};
+
+script.
+    isRegistration = function(){
+        return #{registration}
+    }
