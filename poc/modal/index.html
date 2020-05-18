@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="tingle.min.css">
+    <script src="tingle.min.js"></script>
+    <script src="node_modules/vanilla-modal/dist/index.js"></script>
+    <title>Title</title>
+</head>
+<body>
+    <button id="show">Show modal</button>
+
+
+</body>
+
+<div class="modal">
+    <div class="modal-inner">
+        <a data-modal-close>Close</a>
+        <div class="modal-content"></div>
+    </div>
+</div>
+
+<script>
+
+    document.querySelector("#show").addEventListener("click", ()=>{
+
+        // instanciate new modal
+        var modal = new tingle.modal({
+            footer: true,
+            stickyFooter: false,
+            closeMethods: ['overlay', 'button'],
+            closeLabel: "Close",
+            cssClass: ['custom-class-1', 'custom-class-2'],
+            onOpen: function() {
+                console.log('modal open');
+            },
+            onClose: function() {
+                console.log('modal closed');
+            },
+            beforeClose: function() {
+                // here's goes some logic
+                // e.g. save content before closing the modal
+              //  return true; // close the modal
+                return false; // nothing happens
+            }
+        });
+
+// set content
+        modal.setContent('<h1>here\'s some content</h1>');
+
+// add a button
+        modal.addFooterBtn('Button label', 'tingle-btn tingle-btn--primary', function() {
+            // here goes some logic
+            modal.close();
+        });
+
+// add another button
+        modal.addFooterBtn('Dangerous action !', 'tingle-btn tingle-btn--danger', function() {
+            // here goes some logic
+            modal.close();
+        });
+
+        modal.open()
+
+    })
+
+</script>
+</html>
+
+
+

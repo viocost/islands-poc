@@ -1,0 +1,84 @@
+{
+  "_args": [
+    [
+      {
+        "raw": ".",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": ".",
+        "spec": "c:\\Users\\Konstantin\\Downloads\\tor-router-master\\tor-router-master",
+        "type": "directory"
+      },
+      "c:\\Users\\Konstantin\\Downloads\\tor-router-master\\tor-router-master"
+    ]
+  ],
+  "_from": "..\\..\\..\\Downloads\\tor-router-master\\tor-router-master",
+  "_id": "tor-router@3.2.1",
+  "_inCache": true,
+  "_location": "/tor-router",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": ".",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": ".",
+    "spec": "c:\\Users\\Konstantin\\Downloads\\tor-router-master\\tor-router-master",
+    "type": "directory"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:..\\..\\..\\Downloads\\tor-router-master\\tor-router-master",
+  "_shasum": "244abeecae1e28b84e80b5446f983fb79339be62",
+  "_shrinkwrap": null,
+  "_spec": ".",
+  "_where": "c:\\Users\\Konstantin\\Downloads\\tor-router-master\\tor-router-master",
+  "author": {
+    "name": "Zachary Boyd",
+    "email": "zachary@zacharyboyd.nyc"
+  },
+  "bin": {
+    "tor-router": "bin/tor-router"
+  },
+  "bugs": {
+    "url": "https://github.com/znetstar/tor-router/issues"
+  },
+  "dependencies": {
+    "async": "^2.1.4",
+    "commander": "^2.9.0",
+    "eventemitter2": "^3.0.0",
+    "get-port": "^2.1.0",
+    "jrpc2": "^1.0.5",
+    "lodash": "^4.17.4",
+    "native-dns": "git+https://github.com/znetstar/node-dns.git",
+    "socks-proxy-agent": "^3.0.1",
+    "socksv5": "git+https://github.com/lee-elenbaas/socksv5.git",
+    "temp": "^0.8.3",
+    "winston": "^2.3.1"
+  },
+  "description": "A SOCKS proxy for distributing traffic across multiple instances of Tor",
+  "devDependencies": {
+    "mocha": "^3.2.0",
+    "request": "^2.79.0",
+    "socket.io-client": "^1.7.4",
+    "socks5-http-client": "^1.0.2"
+  },
+  "homepage": "https://github.com/znetstar/tor-router#readme",
+  "license": "Apache-2.0",
+  "main": "src/index.js",
+  "name": "tor-router",
+  "optionalDependencies": {},
+  "readme": "# Tor Router\n\n*Tor Router* is a simple SOCKS5 forward proxy for distributing traffic across multiple instances of Tor. At startup Tor Router will run an arbitrary number of instances Tor an each request will be sent to a different instance in round-robin fashion. This can be used to increase anonymity, because each request will be sent on a different circut and will most likely use a different exit-node, and also to increase performance since outbound traffic is now split across several instances of Tor.\n\nTor Router also includes a DNS forward proxy and a HTTP forward proxy as well, which like the SOCKS proxy will distribute traffic across multiple instances of Tor in round-robin fashion. The HTTP forward proxy can be used to access Tor via an HTTP Proxy.\n\n## Building and Running\n\nInstallation requirements are node.js and tor. Make sure \"tor\" is in your PATH.\n\nTo install run: `npm install`\nTo start run: `bin/tor-router`\n\nTo install globally run: `npm install -g`\n\nAlternatively docker can be used. The build will retrieve the latest version of Tor from the offical Tor Project repository.\n\nTo build run: `docker build -t znetstar/tor-router .`\nTo start run: `docker run --rm -it -p 9050:9050 znetstar/tor-router`\n\n## Usage\n\nThe following command line switches and their environment variable equivalents are available for use:\n\n|Command line switch|Environment Variable|Description|\n|-------------------|--------------------|-----------|\n|-c, --controlPort\t|CONTROL_PORT        |Port the control server will bind to (see below)|\n|-j, --instances    |INSTANCES           |Number of Tor instances to spawn|\n|-s, --socksPort    |SOCKS_PORT\t\t\t |Port the SOCKS proxy will bind to|\n|-d, --dnsPort\t\t|DNS_PORT\t\t\t |Port the DNS proxy will bind to|\n|-h, --httpPort     |HTTP_PORT\t\t\t |Port the HTTP proxy will bind to|\n|-l, --logLevel\t\t|LOG_LEVEL\t\t\t |The log level, \"info\" by default. Set to \"null\" to disable logging|\n\n\nFor example: `tor-router -j 3 -s 9050` would start the proxy with 3 tor instances and listen for SOCKS connections on 9050.\n\n## Control Server\n\nA JSON-RPC 2 TCP Server will listen on port 9077 by default. Using the rpc server the client can add/remove Tor instances and get a new identity (which includes a new ip address) while Tor Router is running.\n\nExample (in node):\n\n```\n\tvar net = require('net');\n\n\tconst client = net.createConnection({ port: 9077 }, () => {\n\t\tvar rpcRequest = {\n\t\t\t\"method\": \"createInstances\",\n\t\t\t\"params\": [3], \n\t\t\t\"jsonrpc\":\"2.0\", \n\t\t\t\"id\": 1\n\t\t};\n\t\tclient.write(JSON.stringify(rpcRequest));\n\t});\n\n\tclient.on('data', (chunk) => {\n\t\tvar rawResponse = chunk.toString('utf8');\n\t\tvar rpcResponse = JSON.parse(rawResponse);\n\t\tconsole.log(rpcResponse)\n\t\tif (rpcResponse.id === 1) {\n\t\t\tconsole.log('Three instances have been created!')\n\t\t}\n\t})\n```\n\n## Test\n\nTests are written in mocha, just run `npm test`",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/znetstar/tor-router.git"
+  },
+  "scripts": {
+    "start": "bin/tor-router -s -d -j 1",
+    "test": "mocha test/test.js"
+  },
+  "version": "3.2.1"
+}

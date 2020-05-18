@@ -1,0 +1,17 @@
+{
+  "vbox_download": "https://download.virtualbox.org/virtualbox/6.0.8/VirtualBox-6.0.8-130520-Win.exe",
+  "vboxmanage": "\"%programw6432%\\Oracle\\VirtualBox\\VBoxManage.exe\"",
+  "vboxmanage_filter": "vboxmanage.exe",
+  "vbox_installer_name": "vboxsetup.exe",
+  "downloads_path": "%USERPROFILE%\\islandsManagerData\\files\\",
+  "temp_path": "%USERPROFILE%\\islandsManagerData\\temp\\",
+  "torrent_metadata_path": "%USERPROFILE%\\islandsManagerData\\torrent_metadata\\",
+  "data_folder": "%USERPROFILE%\\islandsData\\",
+  "user_keys_path":  "%USERPROFILE%\\islandsManagerData\\user_keys\\",
+  "trusted_keys_path": "%USERPROFILE%\\islandsManagerData\\trusted_keys\\",
+  "manager_data_folder": "%USERPROFILE%\\islandsManagerData\\",
+  "guest_additions_path": "\"%programw6432%\\Oracle\\VirtualBox\\VBoxGuestAdditions.iso\"",
+  "hostonly_adapter": "VirtualBox Host-Only Ethernet Adapter",
+  "homedir": "%USERPROFILE%",
+  "explorer": "explorer"
+}

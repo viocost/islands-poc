@@ -1,0 +1,25 @@
+.container
+	#enter_name
+		input#join-room-name(type="text" placeholder="Enter your name")
+		button.btn#join-room-button Join waiting room
+
+	#you_online
+		span#user-name
+		p
+			button#launch-private-room Go to private room
+
+	.chat-wrapper#chat_room
+		.online_users
+			h3.online-users-heading Online now:
+			#online-users-list
+				.online-user-row
+		.chat
+			#chat_window
+			.new-message-wrap
+				textarea#new-msg(placeholder='Enter your message')
+				p.send-new-message-hint Ctrl+Enter - send. Enter - new line
+				button.btn#send-new-msg Send
+
+script(src='/js/waiting_room.js')
+
+

@@ -1,0 +1,36 @@
+.container
+	.enter-chat-options-wrapper
+		.new-topic-wrapper
+			h3 Start new topic
+			input#nickname(type='text', placeholder='Enter your nickname')
+			input#topic-name(type='text', placeholder='Enter topic name')
+			button.btn#create-topic Create topic
+		.join-topic-wrapper
+			h3 Join existing topic
+			input#topic-id(type='text', placeholder='Enter topic id')
+			textarea(placeholder="Public key")
+			textarea(placeholder='Private key')
+			button.btn#join-topic Join topic
+
+	//#enter_name
+	//	p Start new topic
+	//	input#join-room-name(type="text" placeholder="Enter your name")
+	//	p: input#remoteIsland(type="text" placeholder="Join remote chat (enter onion)")
+	//	p: button.btn#join-room-button Join waiting room
+	//
+	#you_online
+		span#user-name
+
+	.chat-wrapper#chat_room
+		.online_users
+			h3.online-users-heading Online now:
+			#online-users-list
+				.online-user-row
+		.chat
+			#chat_window
+			.new-message-wrap
+				textarea#new-msg(placeholder='Enter your message')
+				p.send-new-message-hint Ctrl+Enter - send. Enter - new line
+				button.btn#send-new-msg Send
+
+script(src='/js/waiting_room.js')

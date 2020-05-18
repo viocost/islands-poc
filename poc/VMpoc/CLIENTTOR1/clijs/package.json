@@ -1,0 +1,33 @@
+{
+  "name": "clijs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Konstantin Rybakov <viocost@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.1.4",
+    "commander": "^2.9.0",
+    "eventemitter2": "^3.0.2",
+    "get-port": "^2.1.0",
+    "jrpc2": "^1.0.5",
+    "lodash": "^4.17.4",
+    "native-dns": "^0.7.0",
+    "proxysocket": "^1.2.0",
+    "request": "^2.83.0",
+    "sleep": "^5.1.1",
+    "socket.io": "^2.0.4",
+    "socket.io-client": "^2.0.4",
+    "socks-proxy-agent": "^3.0.1",
+    "socks5-http-client": "^1.0.2",
+    "socksv5": "0.0.6",
+    "temp": "^0.8.3"
+  },
+  "devDependencies": {
+    "morgan": "^1.9.0",
+    "winston": "^2.4.0"
+  }
+}

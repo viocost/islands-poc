@@ -1,0 +1,92 @@
+"metadata" : {
+	"Timestamp": "timestamp",
+	"topicID": "lkjsdg132fjk1l2h45dg423",
+	"topicName": "Our cool conversation",
+	"sharedSecret": "SomeSYMkey",
+	"participants":{
+		"me": {
+			"pubKey" : "<pubKeyDataInPem>",
+			"nickname" :" <nickname>",
+			"island" : "<address of the island onion or ip>",
+			"rights" :" ENUM(__0__: readonly (mute), __1__: readWrite, __2__: 1 + invite, __3__: 2 + kick 	out, set rights)",
+
+
+
+		},
+
+		"local": { 		//or {}
+			"1" : {
+				"pubKey" : "<pubKeyDataInPem>",
+				"nickname" : "<nickname>",
+				"rights" :" ENUM(__0__: readonly (mute), __1__: readWrite, __2__: 1 + invite, __3__: 2 + kick 	out, set rights)",
+
+			} ,
+			"2": {
+				"pubKey" :" <pubKeyDataInPem>",
+				"nickname" : "<nickname>",
+				"rights" : "ENUM(__0__: readonly (mute), __1__: readWrite, __2__: 1 + invite, __3__: 2 + kick 	out, set rights)",
+			}
+		},
+
+		"kaskjhsdjkd.onion":{
+			"..."
+		},
+
+		"fwe234dsgsd.onion": {
+		   :
+		}
+	},
+
+	"pendingInvites" : []
+
+}
+
+
+
+MetadataUpdate:
+ 1. On invite
+ 2. On user info change
+ 3. On user rights change
+
+	
+Metadata signature is appended on every message.
+
+
+!!!Metadata race condition	
+??? Can user login into a conversation from 2 or more islands? at the same time?
+
+
+Messages types:
+
+ 1. User Messages:
+ 	Private/Public (whisper or shout):
+ 		Messages that users see and send to each other 
+
+ 2. Service Messages:
+ 	2.1. Create Invite broadcast (results in adding pending invite to metadata)
+ 	2.2. Accept Invite broadcast (results in adding new user and closing pending invite)
+ 	2.3. Change user info or rights broadcast (results in adding new metadata record with changed info) 
+ 	2.4. SyncMetadata request/response (Request to check if current metadata record is up to date, if no - send a fresh one)
+ 	2.5. History request/response (request to check the history with a given user, if not up-to-date - all missing messages are sent in a response)
+ 			?Processing? ?Message sequencing?
+ 	2.6 Change topic info broadcast ()		
+ 	2.7 Local topic management (Only changes settings locally)
+
+Message Prototype:
+
+message{
+	"seq" : 09123,
+	"type": "127",
+	"nonce": "someNonce2342knrejn",
+	"rawMessage" : "message",  //PublicKeyAuthor + seq+nonce+plaintext -> MessagePendingRaw
+	"author": "authorPublivKey",
+	"AuthorPayloadHash": "someHash",
+	"AuthorSig": "signature",
+	"payloadCipher" : "cipher", //crypt(AuthorSig + MessagePendingRaw, SYM) -> Payload
+	"payloadHash": "someHash",
+	"senderKeySignature": "Signature", // sign(PayloadHash, SecretKeySender) -> SenderSignature
+
+	merge(){
+		//Merge:PublicKeySender, Payload, senderKeySignature
+	}
+}

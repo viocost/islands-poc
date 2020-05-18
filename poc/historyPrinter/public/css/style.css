@@ -1,0 +1,42 @@
+html{
+    font-size: 62.5%;
+    font-family: sans-serif;
+}
+
+.block{
+    margin: 1rem;
+}
+
+#history-path{
+    display: none;
+}
+
+
+
+.output-wrapper{
+    white-space: pre-wrap;
+    width: 70%;
+    padding: 5rem;
+    overflow: auto;
+    font-size: 2rem;
+    word-wrap: break-word;
+}
+
+
+pre {
+    background-color: mintcream;
+    border: 1px solid silver;
+    padding: 10px 20px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    overflow: auto;
+}
+.json-key {
+    color: brown;
+}
+.json-value {
+    color: navy;
+}
+.json-string {
+    color: olive;
+}

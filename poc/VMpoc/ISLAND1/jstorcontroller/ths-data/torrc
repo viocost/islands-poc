@@ -1,0 +1,4 @@
+SocksPort 9999
+ControlPort 9998
+DataDirectory /home/konstantin/jstorcontroller/ths-data/torData
+HashedControlPassword Jan 24 06:56:00.146 [err] Reading config failed--see warnings above.

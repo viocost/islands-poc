@@ -1,0 +1,134 @@
+#waiting_room
+  width: 100%
+  height: 80vh
+  display: none
+
+.chat-wrapper
+  @include horizontal-flex-container
+  justify-content: space-between
+
+#chatArea
+  margin-top: 4rem
+
+.send-new-message-hint
+  color: #9da3ad
+  font-size: 1.2rem
+  font-style: italic
+
+/**Chat window***/
+#chat_window
+  display: flex
+  flex-direction: column
+  @include scroll-style
+  overflow-x: hidden
+  overflow-y: auto
+  min-height: 40vh
+  border: #cccccc 2px solid
+  border-radius: 1rem
+  padding: 1rem 2rem 1rem 2rem
+  max-height: 40vh
+  .message
+    @include message
+    align-self: flex-start
+    background-color: #c4e8ff
+
+  .my_message
+    @include message
+    align-self: flex-end
+    background-color: #d6ffef
+    text-align: right
+
+.msg-time-stamp
+  font-style: italic
+  font-size: 1rem
+.msg-body
+  height: auto
+  overflow-wrap: break-word
+
+/**New message text area and send button***/
+.new-message-wrap
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+  *
+    display: block
+    margin: 1rem 0 1rem 0
+  #new-msg
+    min-width: 60%
+    padding: 1rem
+    border-radius: 0.5rem
+  #send-new-msg
+
+
+
+
+#enter_name
+  margin: 3rem 0 6rem 0
+  input
+    outline: 0
+    padding: 1rem
+    font-size: 2rem
+    border: 2px solid #f2f2f2
+    border-radius: 0.3rem
+
+
+#you_online
+  margin: 3rem 0 3rem 0
+#user-name
+  font-size: 2rem
+
+.online
+  color: orange
+
+
+.chat
+  @include vertical-flex-container
+  align-content: space-between
+  width: 65%
+
+.online_users
+  @include vertical-flex-container
+  margin-top: 3rem
+  order: 0
+  border: 2px solid #cccccc
+  padding: 1rem
+  border-radius: 1rem
+  min-height: 40vh
+  width: 30%
+  max-height: 40vh
+  margin: 0  40px 0 0
+
+
+.online-users-heading
+  font-weight: 500
+  font-size: 1.5rem
+  border-radius: 0.5rem
+  padding: 0.5rem
+  background-color: #05330e
+  margin-bottom: .5rem
+  font-weight: bold
+  color: white
+
+.online-user-row
+  @include horizontal-flex-container
+  align-items: flex-start
+  padding: .5rem
+  border-radius: .5rem
+  &:hover
+    background-color: #ccd9fa
+    cursor: pointer
+
+.online-user-icon
+  margin: 0 1rem 0 1rem
+  color: green
+
+.online-user-username
+
+
+.online-user-id
+  display: none
+
+#online-users-list
+  @include scroll-style
+  overflow-x: hidden
+  overflow-y: auto

@@ -1,0 +1,21 @@
+{
+  "name": "bootstrap",
+  "version": "1.0.0",
+  "description": "Islands bootstrap app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "circular-json": "^0.5.9",
+    "express": "^4.17.1",
+    "parse-magnet-uri": "^4.0.0",
+    "pug": "^2.0.4",
+    "qbittorrent-api": "^1.0.0",
+    "qbittorrent-client": "^1.1.0",
+    "ws": "^7.2.1"
+  }
+}

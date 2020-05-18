@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>island.ico</file>
+        <file>island.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,18 @@
+{
+  "vbox_download": "https://download.virtualbox.org/virtualbox/6.0.8/VirtualBox-6.0.8-130520-OSX.dmg",
+  "vboxmanage": "/usr/local/bin/vboxmanage",
+  "vboxmanage_filter": "vboxmanage",
+  "vbox_installer_name": "virtualbox.dmg",
+  "vbox_distro_mountpoint": "~/VirtualBox/",
+  "downloads_path":  "~/islandsManagerData/files",
+  "temp_path": "~/islandsManagerData/temp",
+  "torrent_metadata_path": "~/islandsManagerData/torrent_metadata",
+  "user_keys_path":  "~/islandsManagerData/user_keys",
+  "trusted_keys_path": "~/islandsManagerData/trusted_keys",
+  "data_folder": "~/islandsData",
+  "manager_data_folder": "~/islandsManagerData",
+  "guest_additions_path": "/Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso",
+  "hostonly_adapter": "vboxnet0",
+  "homedir": "~",
+  "explorer": "open"
+}

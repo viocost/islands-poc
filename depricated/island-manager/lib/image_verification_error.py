@@ -1,0 +1,15 @@
+from enum import Enum
+
+
+class ImageVerificationError(Enum):
+    KEY_NOT_TRUSTED = 1,
+    IMAGE_SIGNATURE_INVALID = 2,
+    PKFP_MISMATCH = 3,
+    INFO_SIGNATURE_INVALID = 4,
+    CRYPTO_ERROR = 5
+    HASH_MISMATCH = 6
+    AUTHORING_PROTOCOL_MISMATCH = 7
+    IMAGE_DATA_INVALID = 8
+
+
+

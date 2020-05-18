@@ -1,0 +1,12 @@
+#include "islandmanager.h"
+
+int IslandManager::launchIsland(){
+
+}
+
+
+
+
+std::string exec(std::string command){
+  
+}

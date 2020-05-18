@@ -1,0 +1,104 @@
+doctype html
+html
+	head
+		body
+			h1 Welcome to Cryptground
+			p: button(onclick="generate_keys()") Generate publick and private keys
+			p: textarea#public-key(placeholder="Public key")
+			p: textarea#private-key(placeholder="Private key")
+			p: textarea#text(placeholder="Text to encrypt")
+			p: button#encrypt(onclick="encrypt()") Encrypt text
+			p: textarea#cypher(placeholder="Cypher")
+			p: button#decrypt(onclick="decrypt()") Decrypt cypher
+			p: textarea#decrypted-text(placeholder="Decrypted text")
+
+			p: button#create-room(onclick="create_room()") Generate room ID and public key
+			p: textarea#UUID(placeholder="Room UUID key")
+			p: textarea#r-public-key(placeholder="Public key ")
+			p: textarea#r-private-key(placeholder="private key ")
+			p: textarea#base64(placeholder="Base64 encoded")
+			p: button#decode64(onclick="decode64()") Decode base 64 room id and public key
+			p: textarea#UUIDpublic(placeholder="Base64 decoded")
+
+
+	script(src="/js/jsencrypt.min.js")
+		script(src="/js/sjcl.js")
+
+script.
+
+	var priv_key = document.querySelector('#private-key')
+	var pub_key = document.querySelector('#public-key')
+	var text = document.querySelector('#text')
+	var cypher = document.querySelector('#cypher')
+	var decrypted = document.querySelector('#decrypted-text')
+
+	var en_crypt = new JSEncrypt();
+	var de_crypt = new JSEncrypt();
+
+	var r_UUID = document.querySelector('#UUID');
+	var r_public = document.querySelector('#r-public-key');
+	var r_private = document.querySelector('#r-private-key');
+	var r_base64 = document.querySelector('#base64');
+	var UUIDpublic = document.querySelector('#UUIDpublic');
+
+	function create_room(){
+			var UUID = generate_uuid();
+			r_UUID.value = UUID;
+			var base64 = b64EncodeUnicode(UUID + "/" + pub_key.value)
+			r_base64.value = base64;
+
+			alert("Your ROOM URL IS: " + "https://some.domain/room/" + base64 + "\nYour private key is:" + priv_key.value);
+
+
+
+	}
+
+	function decode64() {
+			var decoded = b64DecodeUnicode(r_base64.value);
+			UUIDpublic.value = "room ID is: " + decoded.substring(0,36) + "\nPublic key is: " + decoded.substring(37, decoded.length);
+	}
+
+	function generate_uuid(){
+			return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+					var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+					return v.toString(16);
+			});
+	}
+
+
+	function b64EncodeUnicode(str) {
+			// first we use encodeURIComponent to get percent-encoded UTF-8,
+			// then we convert the percent encodings into raw bytes which
+			// can be fed into btoa.
+			return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
+					function toSolidBytes(match, p1) {
+							return String.fromCharCode('0x' + p1);
+					}));
+	}
+
+	function b64DecodeUnicode(str) {
+			// Going backwards: from bytestream, to percent-encoding, to original string.
+			return decodeURIComponent(atob(str).split('').map(function (c) {
+					return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+			}).join(''));
+	}
+
+
+
+	function generate_keys(){
+		en_crypt.getKey();
+		priv_key.value = en_crypt.getPrivateKey()
+		pub_key.value	 = en_crypt.getPublicKey()
+	}
+	function encrypt() {
+			de_crypt.setPrivateKey(priv_key.value)
+			en_crypt.setPublicKey(pub_key.value)
+			cypher.value = en_crypt.encrypt(text.value);
+	}
+	function decrypt() {
+			de_crypt.setPrivateKey(priv_key.value)
+			en_crypt.setPublicKey(pub_key.value)
+			decrypted.value = de_crypt.decrypt(cypher.value)
+
+	}
+

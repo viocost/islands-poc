@@ -1,0 +1,17 @@
+{
+  "name": "sockslibs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "socket.io-client": "^2.0.4",
+    "socket.io-proxy": "^1.0.3",
+    "socks": "^2.1.2",
+    "socks-proxy-agent": "^3.0.1"
+  }
+}

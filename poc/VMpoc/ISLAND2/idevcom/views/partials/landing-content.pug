@@ -1,0 +1,23 @@
+.container
+	h1.landing-heading Welcome to the Islands Dev Chat, Stranger!
+	.landing-wrapper
+		.create-room-wrapper
+			button#create("onclick=create-room()") Create a room!
+		p.landing-divider OR
+		.join-room-wrapper
+			input#roomURL(type="text" placeholder="Enter Room URL")
+			input#key(type="text" placeholder="Enter your private key or invite code")
+			button#join("onclick=join-room") Join room!
+
+
+
+
+script.
+	var bodyBefore = document.querySelector("body");
+	bodyBefore.classList.add('body-landing')
+
+
+
+	document.querySelector('header').innerHTML = "";
+	var url = document.querySelector('#roomURL');
+	var key = document.querySelector('#key');

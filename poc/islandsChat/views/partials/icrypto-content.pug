@@ -1,0 +1,50 @@
+
+.container
+	p: textarea#publicKey(type="textarea", placeholder="Public key")
+	p: textarea#privateKey(type="textarea", placeholder="Private key")
+	p: textarea#publicKeyHash(type="text", placeholder="Public key hash")
+	p: textarea#onion(type="text", placeholder="onion")
+	p: button(onclick="generateOnion()") GENERATE!
+
+#mocha
+.container
+	button(onclick='runTests()') RUN TESTS
+	script(src='https://unpkg.com/chai@4.1.2/chai.js')
+	script(src='https://unpkg.com/mocha@4.0.1/mocha.js')
+	script.
+			mocha.setup('bdd')
+			mocha.setup({globals: ['hasCert']})
+			const assert = chai.assert;
+			const expect = chai.expect;
+
+	script(src="/js/tests/AEStest.js")
+	script(src="/js/tests/asyncTest.js")
+	script(src="/js/tests/comprehensive.js")
+	script(src="/js/tests/nonces.js")
+	script(src="/js/tests/RSAtest.js")
+	script(src="/js/tests/test.js")
+	script(src="/js/tests/utilities.js")
+	script.
+			function runTests() {
+					mocha.checkLeaks();
+					mocha.run();
+			}
+
+			function generateOnion(){
+				let pubKey = document.querySelector("#publicKey");
+				let privKey = document.querySelector("#privateKey");
+				let hsh = document.querySelector("#publicKeyHash");
+				let onion = document.querySelector("#onion");
+
+				let ic = new iCrypto();
+				ic.generateRSAKeyPair("p1", 1024);
+				pubKey.value = ic.get("p1").publicKey;
+				privKey.value = ic.get("p1").privateKey;
+				ic.generateOnionStuff("p1", "fp1")
+
+				let fingerprint = ic.get("fp1");
+				let onionName = fingerprint.substring(0, fingerprint.length/2) + ".onion";
+				hsh.value = fingerprint;
+				onion.value =onionName;
+			}
+

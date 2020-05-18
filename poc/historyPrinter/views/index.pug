@@ -1,0 +1,37 @@
+html
+	head
+		script(src="/js/printer.js")
+		script(src="/js/iCrypto.js")
+		script(src="/js/lzma-worker.min.js")
+		script(src="/js/forge.min.js")
+
+		link(href='/css/style.css' rel='stylesheet')
+		link(href='/css/toastr.min.css' rel='stylesheet')
+	body
+		h1 Welcome to history printer!
+		.input-wrapper
+			.history-input-wrapper
+				.block.switch-wrapper
+					label(for="is-path")
+						|Path to history
+					input(type="checkbox", name="is-path",  id="is-path")
+				.block
+					textarea#history(placeholder="Insert history content here")
+					input#history-path(type="text" placeholder="Path to history file")
+				.block.control-wrapper
+
+					button#load-history Load history
+			.keys-input-wrapper
+				.block
+					textarea#private-key(placeholder="Paste private key in pem here")
+					.block
+						button#add-key Add key
+			.block
+				button#process-history Process!
+			.block
+				button#clear Clear!
+
+		.output-wrapper#output
+
+	script(src="/js/jquery.min.js")
+	script(src="/js/toastr.min.js")

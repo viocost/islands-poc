@@ -1,0 +1,36 @@
+{
+    "vmname": "Island",
+    "vm_image_name": "Island.ova",
+    "vm_sha1": "",
+    "authoring_protocol": "1.0.0",
+    "vm_username": "root",
+    "vm_password": "islands",
+    "shared_folder_name": "islandsData",
+    "islands_vm_extension": "isld",
+    "image_dirname": "islands_image",
+    "image_info_ext": ".json",
+    "image_info_signature_ext": ".signature",
+    "image_file_ext": ".ova",
+    "temp_dir_name_length": 32,
+    "onguest_island_setup_script_path": "/root/isetup.sh",
+    "natpf_name": "Island_pf",
+    "natpf_protocol": "tcp",
+    "natpf_host_ip": "127.0.0.1",
+    "natpf_host_port": "4000",
+    "natpf_guest_ip": "0.0.0.0",
+    "natpf_guest_port": "4000",
+    "local_access": "",
+    "local_access_admin": "",
+    "stats": "stats",
+    "_stats_comment": "stats defines the name of the stats file written every second by islands VM",
+    "local_access_port": 4000,
+    "torrent_port_range": [6881, 6891],
+    "dht_routers": [
+        ["router.utorrent.com", 6881],
+        ["router.bittorrent.com", 6881],
+        ["dht.transmissionbt.com", 6881],
+        ["router.bitcomet.com", 6881],
+        ["dht.aelitis.com", 6881]
+
+    ]
+}

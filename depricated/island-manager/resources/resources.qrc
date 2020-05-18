@@ -1,0 +1,29 @@
+<RCC>
+    <qresource prefix="/images">
+        <file alias="error">icons/error.png</file>
+        <file alias="info">icons/info.png</file>
+        <file>icons/island.ico</file>
+        <file alias="play">icons/play.png</file>
+        <file alias="reload">icons/reload.png</file>
+        <file alias="stop">icons/stop.png</file>
+        <file alias="success">icons/success.png</file>
+        <file alias="download">icons/download.png</file>
+        <file alias="gear">icons/gear.png</file>
+        <file alias="import">icons/import.png</file>
+        <file alias="no">icons/no.png</file>
+        <file alias="question">icons/question.png</file>
+        <file alias="search">icons/search.png</file>
+        <file alias="yes">icons/yes.png</file>
+        <file>icons/island24.png</file>
+        <file>icons/island32.png</file>
+        <file>icons/island64.png</file>
+        <file>icons/island128.png</file>
+        <file>icons/island256.png</file>
+        <file>icons/key-32.png</file>
+        <file alias="gear">icons/settings.png</file>
+        <file alias="recycle">icons/recycle-bin-256.png</file>
+        <file alias="plus">icons/add.png</file>
+        <file>icons/arrow-down-green.png</file>
+        <file>icons/arrow-up-red.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,62 @@
+pseudocode.txt
+
+:Author: kostia
+:Email: kostia@i.planet-a.ru
+:Date: 2018-11-01 22:31
+
+But, for now:
+1. if they have neither offer to install virtual box for them
+2. if they have VB offer to use it
+3. if they have fusion, offer to install/user VB or to see directions to use fusion.
+
+What actually scares me is that I start to think about many things go wrong. Say, Betty's grandson is really advanced and set up custom vbox config, and it has several appliences to manage watering Betty's garden, manageing smarthome etc. And then Betty comes across Islands and gets our installer. Our installer finds vbox, asks, if Betty would like to use it. She presses "yes" and our installer screws up Betty's setup
+
+
+Pseudocode on start:
+   Check configuration.
+   if found:
+      Launch the app
+   else:
+      Search virtualization platforms
+      
+      if Virtualbox found:
+         Ask if ISlands VM is already exists 
+
+			# DIALOG
+      		Virtualbox found. Do you have Islands already installed? If yes - please specify gUID or name. If no, or you don't know - just hit NO
+
+         if exists:
+            specify name or id of the VM
+            save config,
+            remain running
+      
+         else:
+            offer to build islands VM and use it
+		 # DIALOG - Would you like to build Islands? Y/N
+
+      else:
+        
+		 # DIALOG
+		 Virtualbox has not been found on this machine. Would you like me to install virtualbox and setup you Island?
+        
+		 offer to use virtualbox
+         if agree:
+            install virtualbox
+            install islands 
+            save config
+            remain running 
+            
+
+         else if vmware found:   
+
+           # VMWARE found. This manager only supports Virtualbox. Would you like to see d`etailed instructions
+           on setting up islands on VMWARE? Y/Ninstaller -pkg ./VirtualBox/VirtualBox.pkg
+
+           offer to see docs for vmware usage
+            
+
+
+
+
+
+

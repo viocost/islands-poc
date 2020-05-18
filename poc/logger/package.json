@@ -1,0 +1,10 @@
+{
+  "name": "logger",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "intel": "^1.2.0",
+    "winston": "^3.1.0"
+  }
+}

@@ -1,0 +1,17 @@
+extends partials/layout
+block head
+	include partials/head
+block header
+	include partials/header
+block content
+
+	.container
+		form(action="/files", method="POST")
+			input(type="text" name="public_key" placeholder="public key")
+			button(type="submit") GO MOFO!
+
+
+block footer
+	include partials/footer
+block scripts
+	include partials/scripts-content

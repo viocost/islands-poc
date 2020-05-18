@@ -1,0 +1,11 @@
+asn1crypto==0.24.0
+certifi==2019.3.9
+cffi==1.12.3
+cryptography==2.6.1
+pycparser==2.19
+PyQt5==5.12.2
+PyQt5-sip==4.19.17
+six==1.12.0
+urllib3==1.25.3
+markdown2==2.3.8
+fasteners==0.15

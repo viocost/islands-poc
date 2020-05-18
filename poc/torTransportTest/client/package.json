@@ -1,0 +1,23 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "client.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "proxy-agent": "^3.0.3",
+    "proxysocket": "^1.2.0",
+    "request": "^2.88.0",
+    "socket.io-client": "^2.2.0",
+    "socks": "^2.2.2",
+    "socks-proxy-agent": "^2.1.1",
+    "socks5-client": "^1.2.6",
+    "socks5-http-client": "^1.0.4",
+    "socks5-https-client": "^1.2.1",
+    "tor-request": "^2.3.0"
+  }
+}

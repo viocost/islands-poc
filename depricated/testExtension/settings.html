@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Islands Chat Test Extension</title>
+    <style>
+        button{
+            margin: 10px;
+            padding: 15px;
+            border: none;
+            background: #4D9C41;
+            color: white
+        }
+        button:hover{
+            background-color: #5fd553;
+        }
+        button:active{
+            background-color: #d59525;
+        }
+        h2{
+            width: 350px
+        }
+        textarea{
+            margin: 10px
+        }
+        input{
+            margin: 10px
+        }
+
+        .off{
+            background-color: #9da3ad;
+        }
+        .on{
+            background-color: #d59525;
+        }
+
+    </style>
+
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="autotestExt.js"></script>
+
+
+</head>
+<body>
+    <main>
+        <h2>Islands chat test extension </h2>
+        <div>
+            <div>
+                <input id="islands-url" placeholder="Islands URL">
+            </div>
+
+            <textarea id="priv-key" placeholder="Enter private key to login with">
+            </textarea>
+        </div>
+        <div>
+            <button id="save-button">Save key</button>
+            <button id="set-url">Set URL</button>
+        </div>
+        <div>
+            <button id="refresh-button">Refresh all tabs</button>
+        </div>
+
+        <div>
+            <button class="off" id="toggle">Toggle</button>
+        </div>
+    </main>
+
+</body>
+</html>
